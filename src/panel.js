@@ -17,6 +17,7 @@ const sizeOption = (size) =>
 
 const shell = (tabs, sizes) => `
   <section class="rbg-panel" role="dialog" aria-labelledby="rbg-title">
+    <div class="rbg-ambient" aria-hidden="true"></div>
     <header class="rbg-header">
       <h1 id="rbg-title" class="rbg-brand">RBG</h1>
       <div class="rbg-header__actions">
@@ -24,10 +25,14 @@ const shell = (tabs, sizes) => `
         <button type="button" class="rbg-icon-button" data-action="settings" aria-label="Configurações" aria-expanded="false" aria-controls="rbg-settings">${icon('settings')}</button>
         <button type="button" class="rbg-icon-button" data-action="close" aria-label="Fechar">${icon('close')}</button>
       </div>
-      <fieldset class="rbg-settings" id="rbg-settings" hidden>
-        <legend class="rbg-settings__title">Resolução da janela</legend>
-        ${sizes.map(sizeOption).join('')}
-      </fieldset>
+      <div class="rbg-settings" id="rbg-settings" hidden>
+        <fieldset class="rbg-settings__sizes">
+          <legend class="rbg-settings__title">Resolução da janela</legend>
+          ${sizes.map(sizeOption).join('')}
+        </fieldset>
+        <label class="rbg-settings__option"><input type="checkbox" name="rbg-ambient-motion" aria-describedby="rbg-motion-note" />Animar fundo</label>
+        <p class="rbg-settings__fit" id="rbg-motion-note" hidden>Movimento reduzido nas preferências do sistema.</p>
+      </div>
     </header>
     <nav class="rbg-tabs" aria-label="Seções">
       <div role="tablist" aria-label="Seções">${tabs.map((tab) => tabButton(tab, 'tab')).join('')}</div>
@@ -79,6 +84,22 @@ export function mountPanel(root, { tabs, modes, sizes, defaultSize, launcher }) 
   const status = root.querySelector('#rbg-status');
   const settingsButton = root.querySelector('[data-action=settings]');
   const settings = root.querySelector('#rbg-settings');
+  const motionInput = settings.querySelector('[name=rbg-ambient-motion]');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let ambientMotion = true;
+  try {
+    ambientMotion = localStorage.getItem('rbg:ambient-motion') !== 'false';
+  } catch {
+    // Keep the session preference when host storage is unavailable.
+  }
+  function syncAmbientMotion() {
+    motionInput.disabled = reducedMotion.matches;
+    motionInput.checked = ambientMotion && !reducedMotion.matches;
+    settings.querySelector('#rbg-motion-note').hidden = !reducedMotion.matches;
+    root.dataset.ambientMotion = String(ambientMotion && !reducedMotion.matches);
+  }
+  reducedMotion.addEventListener('change', syncAmbientMotion);
+  syncAmbientMotion();
   let cleanup = null;
   let renderVersion = 0;
   let queue = null;
@@ -127,7 +148,7 @@ export function mountPanel(root, { tabs, modes, sizes, defaultSize, launcher }) 
   function applySize() {
     root.style.setProperty('--panel-w', `${state.size.width}px`);
     root.dataset.size = state.size.id;
-    settings.querySelector(`[value="${state.size.id}"]`).checked = true;
+    settings.querySelector(`[name=rbg-size][value="${state.size.id}"]`).checked = true;
   }
 
   function toggleSettings(open) {
@@ -135,12 +156,12 @@ export function mountPanel(root, { tabs, modes, sizes, defaultSize, launcher }) 
     settingsButton.setAttribute('aria-expanded', String(open));
     if (!open) return;
     const gutter = parseFloat(getComputedStyle(root).getPropertyValue('--host-gutter'));
-    for (const option of settings.querySelectorAll('.rbg-settings__option')) {
+    for (const option of settings.querySelectorAll('.rbg-settings__sizes .rbg-settings__option')) {
       const size = find(sizes, option.querySelector('input').value);
       const fits = size.width <= root.clientWidth - 2 * gutter && size.height <= root.clientHeight - 2 * gutter;
       option.querySelector('.rbg-settings__fit').hidden = fits;
     }
-    settings.querySelector('input:checked').focus();
+    settings.querySelector('[name=rbg-size]:checked').focus();
   }
 
   function syncTabs(list, attr, selected) {
@@ -309,6 +330,17 @@ export function mountPanel(root, { tabs, modes, sizes, defaultSize, launcher }) 
   });
   settingsButton.addEventListener('click', () => toggleSettings(settings.hidden));
   settings.addEventListener('change', (event) => {
+    if (event.target === motionInput) {
+      ambientMotion = motionInput.checked;
+      syncAmbientMotion();
+      try {
+        localStorage.setItem('rbg:ambient-motion', String(ambientMotion));
+      } catch {
+        // Keep the session preference when host storage is unavailable.
+      }
+      return;
+    }
+    if (event.target.name !== 'rbg-size') return;
     state.size = find(sizes, event.target.value);
     try {
       localStorage.setItem('rbg:size', state.size.id);

@@ -452,3 +452,34 @@ panel loads nothing from other hosts. Don't use Filled, Rounded or Sharp
 variants, and don't mix in hand-drawn icons once a screen migrates. Icons
 stay decorative next to a visible pt-BR label, or carry an `aria-label` on
 their control.
+
+## 2026-10-28 — Subtle bottom-third ambient background
+
+**Context:** The owner requested a barely visible floating brand gradient,
+fading upward from the panel bottom, and selected continuous drift with a
+pause control rather than a one-shot entrance.
+
+**Decision:** Allow one shell-owned decorative layer as a specific exception
+to the flat-background and no-ambient-loop guidance in rbg-taste, hallmark
+texture, and motion. Two pitch-green radial gradients share a 14% opacity
+cap and a stationary mask that clears the upper two-thirds. Only transform
+animates: independent 18- and 24-second wave cycles translate and gently
+stretch the two gradient areas, with opposite directions and an offset
+phase. No blur, glow, images, or dependencies.
+
+**Why:** The requested movement adds a quiet variation to the background
+without competing with content. A native `Animar fundo` checkbox in settings
+pauses at the current frame, independently of resolution. Its preference
+persists under `rbg:ambient-motion`, or in memory when storage is unavailable.
+
+**Watch out:** System reduced motion always wins and renders a static wash;
+the disabled checkbox explains why. System preference changes apply live
+without overwriting the saved choice. Navigation does not recreate the
+layer; hiding the panel removes its animation from rendering. All other
+ambient-motion and gradient restrictions remain in force.
+
+**Tuning:** Raised the opacity from 6% to 14% after the owner found the
+first version too faint to notice. The owner then requested a visible soft
+wave instead of the initial tiny 36-second alternating drift. The two areas
+now travel 12% horizontally over each cycle with a gentle vertical swell;
+their shared opacity cap and stationary bottom-third mask remain unchanged.
