@@ -1,0 +1,76 @@
+// The global play bar (owner answer 2). Copy from docs/screen-inventory.md › "Persistent bottom action bar".
+// `go` is where the CTA leads (and the mode it sets there); `reason` explains a disabled CTA.
+export const modes = [
+  {
+    id: 'escolher',
+    eyebrow: 'Ranqueada',
+    title: 'Escolha o modo de jogo',
+    cta: 'Jogar',
+    go: { tab: 'jogar', sub: 'modo' },
+  },
+  {
+    id: 'escolhido-solo',
+    eyebrow: 'Modo escolhido',
+    title: 'Ranqueada Solo',
+    cta: 'Confirmar',
+    go: { tab: 'jogar', sub: 'modo', mode: 'buscando' },
+  },
+  {
+    id: 'escolhido-amistosos',
+    eyebrow: 'Modo escolhido',
+    title: 'Amistosos',
+    cta: 'Confirmar',
+    go: { tab: 'jogar', sub: 'modo', mode: 'amistosos' },
+  },
+  {
+    id: 'buscando',
+    eyebrow: 'Ranqueada Solo',
+    title: 'Escolha suas posições',
+    cta: 'Encontrar partida',
+    go: { tab: 'jogar', sub: 'modo' },
+  },
+  {
+    id: 'escalacao',
+    eyebrow: 'Escalação',
+    title: '6s para ir ao campo',
+    cta: 'Ver escalação',
+  },
+  {
+    id: 'em-andamento',
+    eyebrow: 'Partida em andamento',
+    title: 'Jogando no campo',
+    cta: 'Ver partida',
+    pending: true,
+    announcement: 'Você está sendo levado ao campo. A integração com a partida ainda não está no protótipo.',
+  },
+  {
+    id: 'amistosos',
+    eyebrow: 'Amistosos',
+    title: 'Clube Alfa, monte a escalação',
+    cta: 'Criar amistoso',
+    disabled: true,
+    reason: 'Escalação com aceite obrigatório dos 8 jogadores.',
+  },
+  {
+    id: 'rcs-fila',
+    eyebrow: 'RCS Week 3',
+    title: 'Inscreva seu clube na edição',
+    cta: 'Entrar na fila RCS',
+    disabled: true,
+    reason: 'Seu clube precisa estar inscrito e aprovado na RCS Week para jogar.',
+  },
+  {
+    id: 'rcs-pronto',
+    eyebrow: 'RCS Week 3',
+    title: 'Clube Alfa, escalação pronta',
+    cta: 'Entrar na fila RCS',
+    pending: true,
+  },
+  {
+    id: 'rcs-escalacao',
+    eyebrow: 'RCS Week 3',
+    title: 'Inscreva seu clube na edição',
+    cta: 'Ver escalação',
+    go: { tab: 'rcs-week', sub: 'fila' },
+  },
+];

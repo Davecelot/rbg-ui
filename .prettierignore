@@ -1,0 +1,6 @@
+reference/
+public/
+.agents/skills/hallmark/scripts/sloplint.mjs
+.claude/skills/
+.claude/rules/
+.ai/harness-state/

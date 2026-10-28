@@ -1,0 +1,28 @@
+{
+  "name": "rbg-ui",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --base ./",
+    "preview": "vite preview",
+    "test": "playwright test --config playwright/playwright.config.js",
+    "test:ui": "playwright test --config playwright/playwright.config.js --ui",
+    "test:harness": "node --test .agents/hooks/runtime.test.js .agents/tests/harness.test.js",
+    "lint": "eslint .",
+    "format": "prettier --check . --ignore-path .gitignore --ignore-path .prettierignore",
+    "format:write": "prettier --write . --ignore-path .gitignore --ignore-path .prettierignore"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@playwright/test": "^1.48.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.12.0",
+    "prettier": "^3.8.4",
+    "vite": "^6.4.3"
+  }
+}

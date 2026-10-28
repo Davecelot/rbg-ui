@@ -1,20 +1,17 @@
-# RBG — rediseño del panel
+# RBG Panel
 
-Rediseño de UI/UX del panel de **RBG**, el hub de fútbol que se abre
-dentro del hotel pixel-art. El tamaño máximo del panel depende de la ventana
-de cada jugador: el jugador elige una de tres resoluciones 16:9 en la
-configuración, y si no entra en la ventana, el panel se reacomoda más chico.
+A UI/UX redesign of the RBG football hub, shown as a panel inside a pixel-art host app. The panel adapts to the player's window while preserving its 16:9 layout.
 
-- **Dirección:** premium y deportivo. Disciplina Nike (monocromo, plano,
-  un solo CTA en píldora, tipografía con confianza) × los escudos RBG
-  (negro, blanco y un verde cancha) × cultura futbolera × el pixel art como
-  única "fotografía".
-- **Stack:** HTML, CSS y JavaScript sin frameworks. Vite solo para
-  desarrollo, Playwright para probar.
-- **Idiomas:** la interfaz va en portugués de Brasil; la documentación para
-  agentes, en inglés; este README, en español.
+## Stack
 
-## Cómo correrlo
+- Vanilla HTML, CSS, and JavaScript
+- Vite for local development and production builds
+- Playwright for browser verification
+- No runtime dependencies
+
+The interface and player-facing copy are in Brazilian Portuguese. Source code, developer documentation, repository metadata, and this README are in English.
+
+## Run locally
 
 ```bash
 nvm use
@@ -23,53 +20,41 @@ npx playwright install chromium
 npm run dev
 ```
 
-Abrí <http://localhost:5173>: vas a ver el panel montado sobre un fondo
-que simula el hotel. Con `Esc` se cierra y con el botón de abajo a la
-izquierda se vuelve a abrir. Para ir directo a una pantalla:
-`/?tab=ranking&sub=jogadores`.
+Open <http://localhost:5173> to use the host simulator. Press `Esc` to close the panel; use the launcher at the lower left to reopen it. Open a screen directly with URL parameters, for example `/?tab=ranking&sub=jogadores`.
+
+## Checks
 
 ```bash
-npm test                          # las tres resoluciones y la ventana chica
-WALKTHROUGH=1 npm test -- walkthrough   # capturas de cada pantalla
+npm run lint
+npm run format
+npm run test:harness
+npm test
+npm run build
 ```
 
-## Dónde está cada cosa
-
-- `AGENTS.md`: el índice para los agentes (reglas, skills, agentes).
-- `.agents/`: las diez skills, nueve reglas y dos procedimientos de revisión
-  compartidos por Claude Code, Codex y ChatGPT Work local. `CLAUDE.md` y
-  `.claude/` conservan la compatibilidad con Claude.
-- `docs/screen-inventory.md`: todo lo que muestra la app actual. Es la
-  lista de lo que se puede mostrar; no se inventan funciones.
-- `docs/creative-brief.md`: el porqué del rediseño.
-- `reference/current-app/`: las 38 capturas de la app actual.
-- `.ai/DECISIONS.md`: decisiones tomadas y pendientes.
-
-## Usar los agentes
-
-Abrí esta carpeta en Claude Code, Codex o ChatGPT Work local. Codex carga
-`AGENTS.md` y las skills de `.agents/skills/`; Claude usa los mismos archivos
-mediante enlaces simbólicos. En Work, si no aparecen las instrucciones o
-skills, usá el mensaje inicial de [la guía de configuración](docs/agent-setup.md).
-
-Los hooks de Hammock y movimiento usan un motor compartido. En Codex,
-revisá y confiá los hooks del proyecto desde `/hooks` antes de usarlos.
-Los cambios de hooks requieren una nueva revisión. En Work con orquestación
-en la nube, ejecutá los controles manuales de la guía: los hooks locales
-no están disponibles. Mody es opcional.
+Run the screenshot walkthrough with:
 
 ```bash
-npm run test:harness   # descubrimiento, rutas y comportamiento de hooks
+WALKTHROUGH=1 npm test -- walkthrough
 ```
 
-El estado de cada sesión queda separado e ignorado por git. Todo el trabajo
-sigue siendo local en `main`, sin publicar ni cambiar configuración global.
-Los resultados y límites de la verificación están en
-[el registro de verificación](docs/harness-verification.md).
+## Project map
 
-## Pendiente de tu parte
+- `AGENTS.md`: agent-facing repository index and required workflows.
+- `.agents/`: shared skills, rules, and review procedures.
+- `.codex/` and `CLAUDE.md`: runtime entry points for agent tooling.
+- `src/`: panel shell, screens, and synthetic demo data.
+- `styles/`: panel tokens, shell styles, and screen styles.
+- `public/`: local fonts and visual assets used by the panel.
+- `playwright/`: browser configuration, helpers, and tests.
+- `docs/`: creative brief, screen inventory, demo content, and verification notes.
+- `.ai/DECISIONS.md`: cross-cutting decisions and project learnings.
 
-- Guardar los dos escudos en `public/assets/brand/` como
-  `rbg-badge.png` (plano) y `rbg-badge-pixel.png` (pixel art).
-- Responder las preguntas abiertas al final de `docs/screen-inventory.md`.
-- Elegir tipografías (hay candidatas en `.ai/DECISIONS.md`).
+## Project constraints
+
+- Keep player-facing text and accessibility labels in Brazilian Portuguese.
+- Use only synthetic demo data; do not add private player or account data.
+- Keep runtime assets local. The panel must not load resources from other hosts.
+- Preserve the host integration, keyboard behavior, reduced-motion support, and responsive 16:9 layout.
+
+This GitHub repository contains a sanitized initial snapshot. Local reference captures and the original repository history are excluded.

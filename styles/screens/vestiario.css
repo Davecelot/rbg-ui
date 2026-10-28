@@ -1,0 +1,241 @@
+/* Hallmark · screen: vestiario · stamp, posture and waivers live on line 1 of styles/base.css */
+.vestiario {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.vestiario--overview {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+}
+
+.vestiario__head {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.vestiario__panel {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.vestiario__lede {
+  color: var(--grey-400);
+}
+
+.vestiario__slots {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--hairline) solid var(--hairline-on-ink);
+}
+
+.vestiario__slot {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr) auto auto;
+  align-items: baseline;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-4) 0;
+  border: 0;
+  border-bottom: var(--hairline) solid var(--hairline-on-ink);
+  background: transparent;
+  color: var(--paper);
+  text-align: left;
+  cursor: pointer;
+}
+
+.vestiario__slot:active,
+.vestiario__number:active,
+.vestiario__color:active {
+  transform: scale(0.98);
+}
+
+.vestiario__slot:hover .vestiario__slot-value {
+  opacity: 0.7;
+}
+
+.vestiario__slot-label,
+.vestiario__slot-meta {
+  color: var(--grey-400);
+  font-size: var(--text-14);
+}
+
+.vestiario__slot-value {
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: var(--text-20);
+  font-weight: 500;
+}
+
+.vestiario__slot-value--figure {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-40);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  line-height: 1;
+}
+
+.vestiario__numbers {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 44px));
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.vestiario__number {
+  position: relative;
+  cursor: pointer;
+}
+
+.vestiario__number input,
+.vestiario__color input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vestiario__number span {
+  display: grid;
+  place-items: center;
+  height: 44px;
+  border: var(--hairline) solid var(--hairline-on-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-20);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+}
+
+.vestiario__number input:checked + span {
+  border-color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.vestiario__number input:focus-visible + span,
+.vestiario__color:has(input:focus-visible) {
+  outline: 2px solid var(--pitch);
+  outline-offset: 2px;
+}
+
+.vestiario__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.vestiario__help {
+  max-width: 56ch;
+  color: var(--grey-400);
+  font-size: var(--text-14);
+}
+
+.vestiario__boot {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.vestiario__boot-slot {
+  flex: none;
+  width: 128px;
+  height: 80px;
+  text-align: center;
+}
+
+.vestiario__legend {
+  display: block;
+  margin-bottom: var(--space-2);
+  padding: 0;
+  font-weight: 500;
+}
+
+.vestiario__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.vestiario__color {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border: var(--hairline) solid var(--hairline-on-ink);
+  font-size: var(--text-14);
+  cursor: pointer;
+}
+
+.vestiario__color:has(input:checked) {
+  border-color: var(--paper);
+}
+
+.vestiario__swatch {
+  width: 16px;
+  height: 16px;
+  border: var(--hairline) solid var(--grey-500);
+}
+
+.vestiario__swatch--branco {
+  background: var(--swatch-branco);
+}
+
+.vestiario__swatch--preto {
+  background: var(--swatch-preto);
+}
+
+.vestiario__swatch--azul {
+  background: var(--swatch-azul);
+}
+
+.vestiario__swatch--verde {
+  background: var(--swatch-verde);
+}
+
+.vestiario__swatch--vermelho {
+  background: var(--swatch-vermelho);
+}
+
+@container rbg (width < 1100px) {
+  .vestiario {
+    gap: var(--space-6);
+  }
+
+  .equip__name {
+    font-size: var(--text-32);
+  }
+
+  .vestiario__slot-value--figure {
+    font-size: var(--text-28);
+  }
+
+  .vestiario__boot-slot {
+    width: 96px;
+    height: 64px;
+  }
+
+  .vestiario__slot {
+    grid-template-columns: 6.5rem minmax(0, 1fr) auto auto;
+    padding: var(--space-3) 0;
+  }
+
+  .equip {
+    --equip-art: 64px;
+    gap: var(--space-4);
+  }
+
+  .equip__detail {
+    padding-bottom: var(--space-4);
+  }
+}

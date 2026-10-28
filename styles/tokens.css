@@ -1,0 +1,85 @@
+/* Declared on .rbg, not :root, so nothing collides with the host (panel-embedding). Colors provisional — see DECISIONS "Palette from the RBG badges". */
+.rbg {
+  --ink: var(--pitch-ink);
+  --ink-raised: #1c1c1c;
+  --surface-green-1: #0d1711;
+  --surface-green-2: #18271c;
+  --paper: #fafafa;
+  --grey-100: #f5f5f5;
+  --grey-300: #e5e5e5;
+  --grey-400: #9e9ea0;
+  --grey-500: #707072;
+  --hairline-on-ink: #2e2e2e;
+  --pitch: #22a55b;
+  --pitch-ink: #04140a;
+  --rarity-common: #9e9ea0;
+  --rarity-rare: #75aaff;
+  --rarity-epic: #ba9cf1;
+  --rarity-legendary: #e3bf70;
+  --rank-ferro: #a6a9b0;
+  --rank-bronze: #c79a74;
+  --rank-prata: #d4e0ec;
+  --rank-ouro: #e3bf70;
+  --rank-platina: #74cfce;
+  --rank-esmeralda: #74dca7;
+  --rank-diamante: #96c5f7;
+  --rank-craque: #c1aff3;
+  --rank-lenda: #eea1aa;
+  --rank-fenomeno: #f4df9a;
+
+  /* Boot colours are data (the player's chuteira), shown only as swatches. */
+  --swatch-branco: #f2f2f2;
+  --swatch-preto: #0d0d0d;
+  --swatch-azul: #2f6fd6;
+  --swatch-verde: #2e9e4f;
+  --swatch-vermelho: #d23b3b;
+
+  --font-text: 'RBG Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'RBG Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --display-stretch: 62%;
+  --display-weight: 800;
+
+  --text-12: 0.75rem;
+  --text-13: 0.8125rem;
+  --text-14: 0.875rem;
+  --text-16: 1rem;
+  --text-20: 1.25rem;
+  --text-24: 1.5rem;
+  --text-28: 1.75rem;
+  --text-32: 2rem;
+  --text-40: 2.5rem;
+  --text-44: 2.75rem;
+  --text-56: 3.5rem;
+  --text-64: 4rem;
+  --text-80: 5rem;
+  --text-112: 7rem;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  --radius-pill: 999px;
+  --track-display: -0.01em;
+
+  /* Host avatar sprite at 1×; always shown at an integer multiple. */
+  --sprite-w: 64px;
+  --sprite-h: 110px;
+  --hairline: 1px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+  --dur-slow: 600ms;
+
+  --host-gutter: 16px;
+  --panel-w: 1280px;
+  --panel-z: 1000;
+}
+
+/* --panel-w is overwritten by the size preset (src/data/sizes.js). Container breakpoints can't read custom properties: compact < 1100px wide (the 1024 preset and shrunk panels), wide ≥ 1500px (the 1600 preset). */

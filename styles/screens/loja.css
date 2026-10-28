@@ -1,0 +1,240 @@
+/* Hallmark · screen: loja · stamp, posture and waivers live on line 1 of styles/base.css */
+.rbg .loja__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-4);
+}
+
+.rbg .loja__title {
+  font-family: var(--font-display);
+  font-size: var(--text-44);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--track-display);
+  line-height: 1;
+}
+
+.rbg .loja__note {
+  color: var(--grey-300);
+  font-size: var(--text-13);
+}
+
+.rbg .loja__section {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.rbg .loja__section:first-of-type {
+  margin-top: var(--space-6);
+}
+
+.rbg .loja__section-title {
+  font-size: var(--text-20);
+  font-weight: 500;
+}
+
+.rbg .loja__section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+}
+
+.rbg .loja__section-head .loja__note {
+  font-variant-numeric: tabular-nums;
+}
+
+.rbg .loja__grid {
+  display: grid;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rbg .loja__grid--featured {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.rbg .loja__grid--daily {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.rbg .loja__item {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-1);
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--paper);
+  text-align: left;
+  cursor: pointer;
+}
+
+.rbg .loja__grid--featured .loja__item {
+  grid-template-columns: 192px minmax(0, 1fr);
+  grid-template-rows: 1fr auto 1fr;
+  align-items: start;
+  column-gap: var(--space-4);
+}
+
+.rbg .loja__grid--featured .loja__art {
+  grid-row: 1 / span 3;
+  width: 192px;
+  margin: 0;
+  background: var(--paper);
+}
+
+.rbg .loja__grid--featured .loja__name {
+  align-self: end;
+}
+
+.rbg .loja__art {
+  width: 100%;
+  margin-bottom: var(--space-2);
+}
+
+.rbg .loja__grid--featured .loja__art {
+  height: 192px;
+}
+
+.rbg .loja__grid--daily .loja__art {
+  aspect-ratio: 1;
+}
+
+.rbg .loja__item:is(:hover, :focus-visible) .loja__art {
+  border-color: var(--grey-300);
+}
+
+.rbg .loja__name {
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: var(--text-14);
+  font-weight: 500;
+}
+
+.rbg .loja__grid--featured .loja__name {
+  font-family: var(--font-display);
+  font-size: var(--text-32);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  line-height: 1.1;
+}
+
+.rbg .loja__price {
+  font-family: var(--font-display);
+  font-size: var(--text-20);
+  font-stretch: var(--display-stretch);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--display-weight);
+  line-height: 1;
+}
+
+.rbg .loja__grid--featured .loja__price {
+  font-size: var(--text-32);
+}
+
+.rbg .loja__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  margin-top: var(--space-1);
+  color: var(--grey-300);
+  font-size: var(--text-13);
+}
+
+.rbg .loja__codes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: var(--hairline) solid var(--hairline-on-ink);
+}
+
+.rbg .loja__code {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+}
+
+.rbg .loja__label {
+  font-size: var(--text-14);
+}
+
+.rbg .loja__submit {
+  justify-self: start;
+}
+
+.rbg .loja__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-4);
+}
+
+@container rbg (width < 1100px) {
+  .rbg .loja__title {
+    font-size: var(--text-32);
+  }
+
+  .rbg .loja__section,
+  .rbg .loja__codes {
+    margin-top: var(--space-6);
+  }
+
+  .rbg .loja__grid--featured .loja__price {
+    font-size: var(--text-28);
+  }
+
+  .rbg .loja__grid--featured .loja__art {
+    width: 128px;
+    height: 136px;
+  }
+
+  .rbg .loja__grid--featured .loja__item {
+    grid-template-columns: 128px minmax(0, 1fr);
+  }
+
+  .rbg .loja__grid--featured .loja__name {
+    font-size: var(--text-28);
+  }
+
+  .rbg .loja__note {
+    font-size: var(--text-14);
+  }
+}
+
+.rbg .loja__art .rbg-art {
+  width: 192px;
+  height: 192px;
+}
+
+.rbg .loja__grid--daily .rbg-art {
+  width: 128px;
+  height: 128px;
+}
+
+.rbg .loja__grid--featured .rbg-art__missing {
+  color: var(--ink);
+}
+
+@container rbg (width < 1100px) {
+  .rbg .loja__grid--featured .rbg-art {
+    width: 128px;
+    height: 128px;
+  }
+}
+
+@container rbg (width >= 1500px) {
+  .rbg .loja__grid--daily .rbg-art {
+    width: 192px;
+    height: 192px;
+  }
+}

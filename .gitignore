@@ -1,0 +1,25 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+.DS_Store
+.hallmark/
+.ai/harness-state/
+
+# Claude Code local state
+.claude/.hammock-state.json
+.claude/settings.local.json
+.claude/worktrees/
+
+.claude/scheduled_tasks.lock
+
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+npm-debug.log*
+/reference/current-app/

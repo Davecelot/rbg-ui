@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RBG — tipografias candidatas</title>
+    <!-- Dev-only comparison page: fonts load from Google here; the chosen pair gets self-hosted in public/fonts/. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500&family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500&family=Inter+Tight:wght@500;600;700;800&display=swap"
+    />
+    <style>
+      :root {
+        --ink: #111111;
+        --ink-raised: #1c1c1c;
+        --paper: #fafafa;
+        --grey-400: #9e9ea0;
+        --grey-500: #707072;
+        --hairline: #2e2e2e;
+        --pitch: #22a55b;
+        --pitch-ink: #04140a;
+      }
+
+      body {
+        margin: 0;
+        padding: 32px;
+        background: #6c8a7a;
+        color: var(--paper);
+        font-family: system-ui, sans-serif;
+      }
+
+      .intro {
+        max-width: 1024px;
+        margin: 0 auto 32px;
+        color: #0b1a12;
+      }
+
+      .intro h1 {
+        margin: 0 0 8px;
+        font-size: 22px;
+      }
+
+      .intro p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .pair {
+        width: 1024px;
+        margin: 0 auto 48px;
+      }
+
+      .pair__label {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 8px;
+        color: #0b1a12;
+        font-size: 14px;
+      }
+
+      .pair__label strong {
+        font-size: 18px;
+      }
+
+      .panel {
+        width: 1024px;
+        height: 576px;
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        background: var(--ink);
+        border: 1px solid var(--hairline);
+        font-family: var(--text);
+        font-feature-settings: 'tnum' 1;
+        overflow: hidden;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 24px;
+      }
+
+      .brand-slot {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border: 1px dashed var(--grey-500);
+        color: var(--grey-500);
+        font-size: 10px;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 4px;
+        padding: 0 16px;
+        border-bottom: 1px solid var(--hairline);
+      }
+
+      .tab {
+        padding: 12px 8px;
+        border-bottom: 2px solid transparent;
+        color: var(--grey-400);
+        font-family: var(--tab-font, var(--text));
+        font-size: var(--tab-size, 13px);
+        font-weight: 500;
+        letter-spacing: var(--tab-track, 0.06em);
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .tab--on {
+        color: var(--paper);
+        border-bottom-color: var(--paper);
+      }
+
+      .body {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 32px;
+        padding: 24px;
+        min-height: 0;
+      }
+
+      .eyebrow {
+        color: var(--grey-400);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .name {
+        margin: 4px 0 2px;
+        font-family: var(--display);
+        font-weight: var(--display-weight);
+        font-stretch: var(--display-stretch, 100%);
+        font-size: 44px;
+        line-height: 1;
+        letter-spacing: var(--display-track, 0);
+      }
+
+      .rank {
+        color: var(--grey-400);
+        font-size: 15px;
+      }
+
+      .rank b {
+        color: var(--paper);
+        font-weight: 500;
+      }
+
+      .hero-number {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .big {
+        font-family: var(--display);
+        font-weight: var(--display-weight);
+        font-stretch: var(--display-stretch, 100%);
+        font-size: 96px;
+        line-height: 0.9;
+        letter-spacing: var(--display-track, 0);
+      }
+
+      .big small {
+        font-size: 40px;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        gap: 4px 20px;
+        margin-top: 24px;
+      }
+
+      .stat__n {
+        font-family: var(--display);
+        font-weight: var(--display-weight);
+        font-stretch: var(--display-stretch, 100%);
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .stat__l {
+        color: var(--grey-400);
+        font-size: 12px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      th {
+        padding: 0 0 6px;
+        color: var(--grey-400);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-align: left;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--hairline);
+      }
+
+      td {
+        padding: 7px 0;
+        border-bottom: 1px solid var(--hairline);
+      }
+
+      .pos {
+        width: 32px;
+        font-family: var(--display);
+        font-weight: var(--display-weight);
+        font-stretch: var(--display-stretch, 100%);
+        font-size: 20px;
+      }
+
+      .num {
+        text-align: right;
+      }
+
+      .rows {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+        font-size: 14px;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .xp {
+        color: var(--pitch);
+        font-weight: 500;
+      }
+
+      .muted {
+        color: var(--grey-400);
+      }
+
+      .bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 24px;
+        border-top: 1px solid var(--hairline);
+      }
+
+      .bar__title {
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .cta {
+        padding: 12px 32px;
+        border-radius: 999px;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--cta-font, var(--text));
+        font-weight: var(--cta-weight, 500);
+        font-stretch: var(--display-stretch, 100%);
+        font-size: var(--cta-size, 15px);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .check {
+        margin-top: 8px;
+        padding: 10px 14px;
+        background: var(--ink-raised);
+        font-family: var(--display);
+        font-weight: var(--display-weight);
+        font-stretch: var(--display-stretch, 100%);
+        font-size: 22px;
+        font-feature-settings: 'tnum' 1;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .check span:last-child {
+        font-family: var(--text);
+        font-weight: 400;
+        font-stretch: 100%;
+        font-size: 16px;
+        align-self: center;
+      }
+
+      .pair--a {
+        --display: 'Archivo', sans-serif;
+        --display-weight: 800;
+        --display-stretch: 62%;
+        --text: 'Archivo', sans-serif;
+        --cta-font: 'Archivo', sans-serif;
+        --cta-weight: 700;
+        --cta-size: 17px;
+      }
+
+      .pair--b {
+        --display: 'Barlow Condensed', sans-serif;
+        --display-weight: 700;
+        --text: 'Barlow', sans-serif;
+        --cta-font: 'Barlow Condensed', sans-serif;
+        --cta-weight: 700;
+        --cta-size: 18px;
+        --tab-font: 'Barlow Condensed', sans-serif;
+        --tab-size: 15px;
+      }
+
+      .pair--c {
+        --display: 'Big Shoulders Display', sans-serif;
+        --display-weight: 800;
+        --display-track: 0.01em;
+        --text: 'Inter', sans-serif;
+        --cta-font: 'Big Shoulders Display', sans-serif;
+        --cta-weight: 800;
+        --cta-size: 19px;
+      }
+
+      .pair--d {
+        --display: 'Inter Tight', sans-serif;
+        --display-weight: 700;
+        --display-track: -0.03em;
+        --text: 'Inter', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="intro">
+      <h1>Tipografias candidatas — escolhida: A (Archivo), 2026-10-26</h1>
+      <p>
+        Quatro pares, cada um no painel em 1024 × 576 (o menor preset), em tamanho real. Conteúdo do inventário: perfil,
+        ranking, missões, item e preço. A faixa cinza embaixo de cada painel testa algarismos tabulares (as colunas
+        devem alinhar) e acentos pt-BR.
+      </p>
+    </div>
+
+    <template id="panel">
+      <div class="panel">
+        <div class="header">
+          <span class="brand-slot">[RBG]</span>
+          <span class="muted">✕</span>
+        </div>
+        <nav class="tabs">
+          <span class="tab tab--on">Perfil</span><span class="tab">Vestiário</span><span class="tab">Meu Time</span
+          ><span class="tab">Jogar</span><span class="tab">Ranking</span><span class="tab">RCS Week</span
+          ><span class="tab">Passe de Batalha</span><span class="tab">Loja</span>
+        </nav>
+        <div class="body">
+          <section>
+            <div class="eyebrow">Ranqueada · Solo · GK</div>
+            <div class="name">Atleta Exemplo</div>
+            <div class="rank"><b>Prata II</b> · 24 / 100 PDL · ranking</div>
+            <div class="hero-number">
+              <span class="big">64<small>%</small></span>
+              <span class="muted">Aproveitamento<br />3 MVPs</span>
+            </div>
+            <div class="stats">
+              <div>
+                <div class="stat__n">18</div>
+                <div class="stat__l">Vitórias</div>
+              </div>
+              <div>
+                <div class="stat__n">18</div>
+                <div class="stat__l">Derrotas</div>
+              </div>
+              <div>
+                <div class="stat__n">2</div>
+                <div class="stat__l">Empates</div>
+              </div>
+              <div>
+                <div class="stat__n">15</div>
+                <div class="stat__l">Gols</div>
+              </div>
+              <div>
+                <div class="stat__n">0,1</div>
+                <div class="stat__l">Gols / jogo</div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Jogador</th>
+                  <th>Elo</th>
+                  <th class="num">Partidas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pos">1</td>
+                  <td>Atleta 01</td>
+                  <td class="muted">Ouro I · 50 PDL</td>
+                  <td class="num">38V 9D 4E</td>
+                </tr>
+                <tr>
+                  <td class="pos">2</td>
+                  <td>Atleta 02</td>
+                  <td class="muted">Prata IV · 42 PDL</td>
+                  <td class="num">31V 13D 2E</td>
+                </tr>
+                <tr>
+                  <td class="pos">3</td>
+                  <td>Atleta 03</td>
+                  <td class="muted">Bronze II · 33 PDL</td>
+                  <td class="num">27V 12D 3E</td>
+                </tr>
+                <tr>
+                  <td class="pos">4</td>
+                  <td>Jogador 16</td>
+                  <td class="muted">Ouro I · 11 PDL</td>
+                  <td class="num">76V 47D 1E</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="rows">
+              <div class="row"><span>Não sofrer gol em 1 partida</span><span class="xp">+55 XP · 0/1</span></div>
+              <div class="row"><span>Entrada temática da temporada</span><span class="muted">500 XP sazonal</span></div>
+              <div class="row">
+                <span>Escuta Aqui · Comemoração</span
+                ><span>R$ 5,49 <span class="muted">(€ 3,99 · US$ 3.99)</span></span>
+              </div>
+            </div>
+          </section>
+        </div>
+        <footer class="bar">
+          <div>
+            <div class="eyebrow">Ranqueada</div>
+            <div class="bar__title">Escolha o modo de jogo</div>
+          </div>
+          <span class="cta">Jogar</span>
+        </footer>
+      </div>
+      <div class="check">
+        <span>1111 · 8888 · 0,1 · 5.405 · 1.500</span>
+        <span>Visão Geral · Comemoração · Fenômeno · Imparáveis · ÇÃÊ</span>
+      </div>
+    </template>
+
+    <section
+      class="pair pair--a"
+      data-label="A — Archivo Condensed + Archivo"
+      data-note="Uma família só, eixo de largura: atlético, técnico, discreto."
+    ></section>
+    <section
+      class="pair pair--b"
+      data-label="B — Barlow Condensed + Barlow"
+      data-note="DIN/placa de estrada: transmissão esportiva, muito legível pequeno."
+    ></section>
+    <section
+      class="pair pair--c"
+      data-label="C — Big Shoulders Display + Inter"
+      data-note="Placar de estádio — reprovada: sem algarismos tabulares (1111 = 41 px, 8888 = 75 px)."
+    ></section>
+    <section
+      class="pair pair--d"
+      data-label="D — Inter Tight + Inter"
+      data-note="A mais próxima da Nike — reprovada: Inter como display é reflexo de IA (hallmark, gate 1)."
+    ></section>
+
+    <script>
+      const template = document.getElementById('panel');
+      for (const pair of document.querySelectorAll('.pair')) {
+        const label = document.createElement('div');
+        label.className = 'pair__label';
+        label.innerHTML = `<strong>${pair.dataset.label}</strong><span>${pair.dataset.note}</span>`;
+        pair.append(label, template.content.cloneNode(true));
+      }
+    </script>
+  </body>
+</html>

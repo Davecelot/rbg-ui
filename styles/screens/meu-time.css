@@ -1,0 +1,427 @@
+/* Hallmark · screen: meu-time · stamp, posture and waivers live on line 1 of styles/base.css */
+.clube__head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3) var(--space-6);
+}
+
+.clube__xp {
+  grid-column: 1 / -1;
+  height: 4px;
+}
+
+.clube__name-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.clube__crest {
+  width: 56px;
+  height: 56px;
+}
+
+.clube__name {
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-family: var(--font-display);
+  font-size: var(--text-44);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--track-display);
+  line-height: 1;
+}
+
+.clube__meta,
+.clube__note {
+  color: var(--grey-400);
+  font-size: var(--text-13);
+}
+
+.clube__meta {
+  margin-top: var(--space-1);
+}
+
+.clube__facts {
+  display: flex;
+  gap: var(--space-6);
+  margin: 0;
+}
+
+.clube__facts div,
+.clube__stats div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.clube__facts dt,
+.clube__stats dt {
+  color: var(--grey-400);
+  font-size: var(--text-12);
+}
+
+.clube__facts dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.clube__section {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.clube__section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+}
+
+.clube__section-head .clube__note {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.clube__title {
+  font-size: var(--text-20);
+  font-weight: 500;
+}
+
+.clube__lineup,
+.clube__missions,
+.clube__trophies,
+.clube__uniforms {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clube__lineup {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.clube__player {
+  display: grid;
+  justify-items: start;
+  align-content: start;
+  gap: var(--space-1);
+  padding-top: var(--space-3);
+  border-top: 2px solid var(--hairline-on-ink);
+}
+
+.clube__player.is-me {
+  border-top-color: var(--pitch);
+}
+
+.clube__slot {
+  font-family: var(--font-display);
+  font-size: var(--text-28);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  line-height: 1;
+  text-decoration: none;
+}
+
+.clube__sprite {
+  width: calc(var(--sprite-w) * 2);
+  height: calc(var(--sprite-h) * 2);
+  max-width: 100%;
+}
+
+/* --sprite-w is a whole multiple of the 16 px sprite, so filling it keeps integer scaling. */
+.rbg .clube__sprite .rbg-art {
+  width: var(--sprite-w);
+  height: var(--sprite-w);
+}
+
+.clube__player-name {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.clube__me {
+  margin-left: var(--space-2);
+  color: var(--pitch);
+  font-size: var(--text-12);
+  font-weight: 400;
+}
+
+.clube__status {
+  color: var(--grey-400);
+  font-size: var(--text-13);
+}
+
+.clube__empty {
+  color: var(--grey-300);
+}
+
+.clube__staff {
+  padding-top: var(--space-4);
+  border-top: var(--hairline) solid var(--hairline-on-ink);
+}
+
+.clube__uniforms {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.clube__uniform {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+}
+
+.clube__uniform-art {
+  height: 160px;
+}
+
+.clube__uniform-art--empty {
+  display: grid;
+  place-items: center;
+  border: var(--hairline) solid var(--hairline-on-ink);
+  color: var(--grey-400);
+  font-size: var(--text-13);
+}
+
+.clube__swatches {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.clube__swatch {
+  width: 16px;
+  height: 16px;
+}
+
+.clube__uniform-name {
+  font-size: var(--text-14);
+  font-weight: 500;
+}
+
+.clube__leave {
+  color: var(--grey-300);
+}
+
+.clube__empty-state {
+  justify-items: start;
+  gap: var(--space-2);
+}
+
+.clube__empty-title {
+  font-size: var(--text-28);
+  font-weight: 500;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.clube__record {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-4) var(--space-8);
+}
+
+.clube__figure {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-80);
+  font-stretch: var(--display-stretch);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--display-weight);
+  line-height: 0.9;
+}
+
+.clube__unit {
+  font-size: 0.4em;
+}
+
+.clube__figure-label {
+  color: var(--grey-400);
+  font-family: var(--font-text);
+  font-size: var(--text-14);
+  font-stretch: 100%;
+  font-weight: 400;
+}
+
+.clube__stats {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  gap: var(--space-2) var(--space-6);
+  margin: 0;
+}
+
+.clube__stats dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-28);
+  font-stretch: var(--display-stretch);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--display-weight);
+  line-height: 1.1;
+}
+
+.clube__insights {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin: 0;
+  padding-top: var(--space-4);
+  border-top: var(--hairline) solid var(--hairline-on-ink);
+}
+
+.clube__insights dt {
+  color: var(--grey-400);
+  font-size: var(--text-12);
+}
+
+.clube__insights dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.clube__form {
+  display: flex;
+  gap: var(--space-1);
+  margin: var(--space-1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clube__form li {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: var(--hairline) solid var(--grey-500);
+  font-size: var(--text-12);
+}
+
+.clube__form-win {
+  border-color: var(--pitch);
+  color: var(--pitch);
+}
+
+.clube__mission,
+.clube__trophy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: var(--hairline) solid var(--hairline-on-ink);
+}
+
+.clube__mission .rbg-progress,
+.clube__trophy .rbg-progress {
+  grid-column: 1;
+}
+
+.clube__mission-name,
+.clube__trophy-name {
+  font-weight: 500;
+}
+
+.clube__mission-xp {
+  color: var(--grey-400);
+  font-size: var(--text-14);
+}
+
+.clube__mission-count {
+  color: var(--grey-400);
+  font-size: var(--text-13);
+  font-variant-numeric: tabular-nums;
+}
+
+.clube__trophy .rbg-tag {
+  justify-self: end;
+}
+
+.clube__trophy .clube__note {
+  grid-column: 1 / -1;
+}
+
+@container rbg (width < 1100px) {
+  .clube__head {
+    gap: var(--space-2) var(--space-4);
+  }
+
+  .clube__uniform-art {
+    height: 96px;
+  }
+
+  .clube__head--slim {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .clube__head--slim .clube__crest,
+  .clube__head--slim .clube__meta {
+    display: none;
+  }
+
+  .clube__head--slim .clube__name {
+    font-size: var(--text-24);
+  }
+
+  .clube__empty-title {
+    font-size: var(--text-20);
+  }
+
+  .clube__name {
+    font-size: var(--text-32);
+  }
+
+  .clube__section {
+    margin-top: var(--space-4);
+  }
+
+  .clube__figure {
+    font-size: var(--text-56);
+  }
+
+  .clube__stats {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  .clube__stats dd {
+    font-size: var(--text-20);
+  }
+
+  .clube__insights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container rbg (width < 1440px) {
+  .clube__sprite {
+    width: var(--sprite-w);
+    height: var(--sprite-h);
+  }
+}
+
+.rbg .clube__coach {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.rbg .rbg-screen--meu-time .rbg-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  overflow-x: visible;
+}
+
+.rbg .rbg-screen--meu-time .rbg-tile {
+  min-width: 0;
+  width: auto;
+}
