@@ -21,6 +21,8 @@ intent map, do/don't — lives in [`rbg-taste`](../skills/rbg-taste/SKILL.md)
 and the creative brief ([`docs/creative-brief.md`](../../docs/creative-brief.md)).
 This rule sets the boundaries; that skill holds the detail.
 
+Owner-approved semantic red (`--danger`) marks negative outcomes, negative statistics, and danger actions. It supplements pitch green for success; it is not a decorative brand accent.
+
 ## Sources of truth
 
 - **Brand:** the two RBG badges in `public/assets/brand/`. Use them as

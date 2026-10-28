@@ -405,7 +405,11 @@
 }
 
 .historico__row--loss .historico__result {
-  color: var(--grey-400);
+  color: var(--danger);
+}
+
+.historico__row--win .historico__result {
+  color: var(--pitch);
 }
 
 .historico__meta {
@@ -454,6 +458,10 @@
   color: var(--grey-300);
   font-weight: 500;
   white-space: nowrap;
+}
+
+.historico__delta--loss {
+  color: var(--danger);
 }
 
 .historico__delta--gain {

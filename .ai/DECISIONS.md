@@ -483,3 +483,13 @@ first version too faint to notice. The owner then requested a visible soft
 wave instead of the initial tiny 36-second alternating drift. The two areas
 now travel 12% horizontally over each cycle with a gentle vertical swell;
 their shared opacity cap and stationary bottom-third mask remain unchanged.
+
+## 2026-10-28 — Semantic red for negative information
+
+**Context:** Defeats and lost PDL were neutral while positive outcomes used pitch green. The owner requested red for all negative information and danger actions.
+
+**Decision:** Add `--danger: #ffc2c2` for negative outcomes, aggregate loss/conceded-goal statistics, own goals, negative goal difference, and the leave-club action. Paired victories use existing pitch green; draws and zero deltas stay neutral. This is an owner-approved semantic exception to the brand palette, not a sampled badge color. The light red is chosen for readable small text on the dark green panel surfaces.
+
+**Why:** Make positive and negative outcomes equally easy to identify while retaining labels, letters, and signs as non-color cues.
+
+**Watch out:** Do not recolor full rows, neutral metadata, ordinary cancel/close controls, or the brand badges. Outcome mapping must distinguish draws from losses.

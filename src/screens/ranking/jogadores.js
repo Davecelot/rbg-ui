@@ -12,7 +12,7 @@ const row = (p) => `
       ${p.pass ? '<span class="rbg-tag ranking__pass">Passe T1</span>' : ''}</span></span>
     </th>
     <td><span class="ranking__elo">${rankBadge(p.tierId, p.division)}<span><span class="ranking__tier">${rankName(p.tierId, p.division)}</span> <span class="ranking__meta">${unit(p.pdl, 'PDL')}</span></span></span></td>
-    <td class="ranking__record">${p.wins}V ${p.losses}D ${p.draws}E</td>
+    <td class="ranking__record"><span class="rbg-positive">${p.wins}V</span> <span class="rbg-negative">${p.losses}D</span> ${p.draws}E</td>
     <td class="ranking__num">${unit(p.goals, 'gols')}</td>
   </tr>`;
 

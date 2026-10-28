@@ -3,7 +3,7 @@ import { signed, unit } from '../format.js';
 import { matchHead, matchRow } from '../match-row.js';
 
 const pdl = (match) => `
-  <span class="historico__delta${match.pdl > 0 ? ' historico__delta--gain' : ''}">${unit(signed(match.pdl), 'PDL')}</span>
+  <span class="historico__delta${match.pdl > 0 ? ' historico__delta--gain' : match.pdl < 0 ? ' historico__delta--loss' : ''}">${unit(signed(match.pdl), 'PDL')}</span>
   ${match.autofill ? '<span class="rbg-tag">Autofill</span>' : ''}`;
 
 export default {

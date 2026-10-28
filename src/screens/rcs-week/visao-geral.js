@@ -44,10 +44,17 @@ export default {
           .map(
             (team, index) => `<tr${team.mine ? ' aria-current="true"' : ''}>
           <td>${index + 1}</td><th scope="row">${team.name}</th>
-          ${[team.points, team.played, team.wins, team.draws, team.losses, team.goalsFor, team.goalsAgainst, team.goalsFor - team.goalsAgainst].map((value) => `<td class="rcs__num">${value}</td>`).join('')}
+          <td class="rcs__num">${team.points}</td><td class="rcs__num">${team.played}</td>
+          <td class="rcs__num rbg-positive">${team.wins}</td><td class="rcs__num">${team.draws}</td>
+          <td class="rcs__num rbg-negative">${team.losses}</td><td class="rcs__num">${team.goalsFor}</td>
+          <td class="rcs__num rbg-negative">${team.goalsAgainst}</td>
+          <td class="rcs__num${team.goalsFor < team.goalsAgainst ? ' rbg-negative' : team.goalsFor > team.goalsAgainst ? ' rbg-positive' : ''}">${team.goalsFor - team.goalsAgainst}</td>
           <td class="rcs__form">${team.form
             .slice(0, 5)
-            .map((value) => `<abbr title="${{ V: 'Vitória', E: 'Empate', D: 'Derrota' }[value]}">${value}</abbr>`)
+            .map(
+              (value) =>
+                `<abbr class="${value === 'V' ? 'rbg-positive' : value === 'D' ? 'rbg-negative' : ''}" title="${{ V: 'Vitória', E: 'Empate', D: 'Derrota' }[value]}">${value}</abbr>`,
+            )
             .join(' ')}</td>
         </tr>`,
           )

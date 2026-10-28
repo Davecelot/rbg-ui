@@ -208,7 +208,7 @@
 }
 
 .clube__leave {
-  color: var(--grey-300);
+  color: var(--danger);
 }
 
 .clube__empty-state {
@@ -307,7 +307,12 @@
   font-size: var(--text-12);
 }
 
-.clube__form-win {
+.clube__form .clube__form-loss {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.clube__form .clube__form-win {
   border-color: var(--pitch);
   color: var(--pitch);
 }

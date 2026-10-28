@@ -7,7 +7,7 @@ import { profileCustomizer } from './customize.js';
 
 const { rank, record, pass, club } = player;
 
-const figure = (value, label) => `<div><dt>${label}</dt><dd>${value}</dd></div>`;
+const figure = (value, label, tone = '') => `<div><dt>${label}</dt><dd class="${tone}">${value}</dd></div>`;
 
 export default {
   id: 'perfil-overview',
@@ -44,8 +44,8 @@ export default {
         </p>
 
         <dl class="perfil__record">
-          ${figure(record.wins, 'Vitórias')}
-          ${figure(record.losses, 'Derrotas')}
+          ${figure(record.wins, 'Vitórias', 'rbg-positive')}
+          ${figure(record.losses, 'Derrotas', 'rbg-negative')}
           ${figure(record.draws, 'Empates')}
           ${figure(record.goals, 'Gols')}
           ${figure(record.assists, 'Assistências')}

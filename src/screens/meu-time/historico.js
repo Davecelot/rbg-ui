@@ -3,7 +3,7 @@ import { matchHead, matchRow } from '../match-row.js';
 import { clubHead } from './head.js';
 
 const { history } = club;
-const figure = (label, value) => `<div><dt>${label}</dt><dd>${value}</dd></div>`;
+const figure = (label, value, tone = '') => `<div><dt>${label}</dt><dd class="${tone}">${value}</dd></div>`;
 
 export default {
   id: 'historico',
@@ -20,19 +20,19 @@ export default {
       <div class="clube__record">
         <p class="clube__figure"><span>${history.winRate}<span class="clube__unit">%</span></span><span class="clube__figure-label">de aproveitamento</span></p>
         <dl class="clube__stats">
-          ${figure('Vitórias', history.wins)}
+          ${figure('Vitórias', history.wins, 'rbg-positive')}
           ${figure('Empates', history.draws)}
-          ${figure('Derrotas', history.losses)}
+          ${figure('Derrotas', history.losses, 'rbg-negative')}
           ${figure('Gols marcados', history.goalsFor)}
-          ${figure('Gols sofridos', history.goalsAgainst)}
+          ${figure('Gols sofridos', history.goalsAgainst, 'rbg-negative')}
           ${figure('Sequência invicta', history.unbeaten)}
         </dl>
       </div>
       <dl class="clube__insights">
-        ${history.insights.map((i) => `<div><dt>${i.label}</dt><dd>${i.value}</dd><dd class="clube__note">${i.note}</dd></div>`).join('')}
+        ${history.insights.map((i) => `<div><dt>${i.label}</dt><dd>${i.value}</dd><dd class="clube__note${i.label === 'Mais derrotas' ? ' rbg-negative' : i.label === 'Mais vitórias' ? ' rbg-positive' : ''}">${i.note}</dd></div>`).join('')}
         <div>
           <dt>Últimos resultados</dt>
-          <dd><ol class="clube__form" aria-label="Mais recente primeiro">${history.last.map((r) => `<li class="clube__form-${r === 'V' ? 'win' : 'loss'}"><abbr title="${r === 'V' ? 'Vitória' : r === 'E' ? 'Empate' : 'Derrota'}">${r}</abbr></li>`).join('')}</ol></dd>
+          <dd><ol class="clube__form" aria-label="Mais recente primeiro">${history.last.map((r) => `<li class="clube__form-${r === 'V' ? 'win' : r === 'E' ? 'draw' : 'loss'}"><abbr title="${r === 'V' ? 'Vitória' : r === 'E' ? 'Empate' : 'Derrota'}">${r}</abbr></li>`).join('')}</ol></dd>
           <dd class="clube__note">Mais recente à esquerda</dd>
         </div>
       </dl>

@@ -58,11 +58,12 @@ rest steps back.
   `paper` (white) as the two surfaces — the panel may be dark or light, but
   one mode per surface, separated by hairlines, not shadows; three greys for
   metadata, hairlines and disabled; **pitch green** (from the badge laurel)
-  as the single signal — live, ready, yours, primary progress, the main CTA
+  as the brand signal — live, ready, yours, primary progress, the main CTA
   when not ink/paper. Rank-tier and rarity colors exist **only as data**
   (a tier chip, a medal, or one static 4px rarity strip at an artwork edge),
   never as full frames, glows or backgrounds. The strip has a neutral text
   rarity label; paid access uses ink/paper contrast, not a rarity color.
+- **Negative state exception** (owner-approved, 2026-10-28): `--danger` red marks defeats, abandonment, lost PDL, negative statistics, and danger actions. Paired wins use pitch green; draws and zero deltas stay neutral. Keep labels and signs; never tint entire rows or use red as decoration.
 - **Type**: **Archivo**, one self-hosted variable family (DECISIONS). The
   **display** cut — `--display-stretch: 62%`, `--display-weight: 800` — sets
   headlines and **numbers** (rank, score, XP, level, price); the normal
