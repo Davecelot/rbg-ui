@@ -1,17 +1,13 @@
 # RBG Panel
 
-A UI/UX redesign of the RBG football hub, shown as a panel inside a pixel-art host app. The panel adapts to the player's window while preserving its 16:9 layout.
+RBG is a fútbol hub redesigned as a panel inside a pixel-art host app. This repository contains the front-end experience and a local host simulator; it has no back end. The panel adapts to the available window while preserving its 16:9 layout.
 
-## Stack
+## Requirements
 
-- Vanilla HTML, CSS, and JavaScript
-- Vite for local development and production builds
-- Playwright for browser verification
-- No runtime dependencies
+- Node.js 22 or later
+- npm
 
-The interface and player-facing copy are in Brazilian Portuguese. Source code, developer documentation, repository metadata, and this README are in English.
-
-## Run locally
+## Getting started
 
 ```bash
 nvm use
@@ -20,41 +16,40 @@ npx playwright install chromium
 npm run dev
 ```
 
-Open <http://localhost:5173> to use the host simulator. Press `Esc` to close the panel; use the launcher at the lower left to reopen it. Open a screen directly with URL parameters, for example `/?tab=ranking&sub=jogadores`.
+Open <http://localhost:5173> to use the host simulator. Press `Esc` to close the panel, then use the launcher in the lower-left corner to reopen it. Open a screen directly with URL parameters, for example `/?tab=ranking&sub=jogadores`.
 
-## Checks
+## Development commands
 
-```bash
-npm run lint
-npm run format
-npm run test:harness
-npm test
-npm run build
-```
+| Command                | Purpose                                                             |
+| ---------------------- | ------------------------------------------------------------------- |
+| `npm run dev`          | Start the Vite development server and host simulator.               |
+| `npm run lint`         | Check JavaScript with ESLint.                                       |
+| `npm run format`       | Check formatting with Prettier.                                     |
+| `npm run test:harness` | Run harness tests.                                                  |
+| `npm test`             | Run the Playwright browser tests across the configured panel sizes. |
+| `npm run build`        | Create the production build in `dist/`.                             |
 
-Run the screenshot walkthrough with:
+Capture a walkthrough of the screens and states with:
 
 ```bash
 WALKTHROUGH=1 npm test -- walkthrough
 ```
 
-## Project map
+## Project structure
 
-- `AGENTS.md`: agent-facing repository index and required workflows.
-- `.agents/`: shared skills, rules, and review procedures.
-- `.codex/` and `CLAUDE.md`: runtime entry points for agent tooling.
-- `src/`: panel shell, screens, and synthetic demo data.
-- `styles/`: panel tokens, shell styles, and screen styles.
-- `public/`: local fonts and visual assets used by the panel.
-- `playwright/`: browser configuration, helpers, and tests.
-- `docs/`: creative brief, screen inventory, demo content, and verification notes.
-- `.ai/DECISIONS.md`: cross-cutting decisions and project learnings.
+- `src/panel.js` — panel shell, navigation, URL state, and open/close behavior.
+- `src/screens/` — screen modules, registered in `src/screens/index.js`.
+- `src/data/` — synthetic data used by the demo screens.
+- `styles/` — panel tokens, shell styles, and screen styles.
+- `public/` — local fonts and visual assets.
+- `playwright/` — browser configuration, helpers, and tests.
+- `docs/` — [creative brief](docs/creative-brief.md), [screen inventory](docs/screen-inventory.md), demo content, and verification notes.
+- `.agents/` — shared agent rules, skills, and review procedures, indexed by [AGENTS.md](AGENTS.md).
+- `.ai/DECISIONS.md` — cross-cutting project decisions.
 
-## Project constraints
+## Project conventions
 
-- Keep player-facing text and accessibility labels in Brazilian Portuguese.
-- Use only synthetic demo data; do not add private player or account data.
-- Keep runtime assets local. The panel must not load resources from other hosts.
-- Preserve the host integration, keyboard behavior, reduced-motion support, and responsive 16:9 layout.
-
-This GitHub repository contains a sanitized initial snapshot. Local reference captures and the original repository history are excluded.
+- The interface, accessibility labels, and other player-facing text use Brazilian Portuguese (pt-BR). Repository documentation and source code use English.
+- The panel uses vanilla HTML, CSS, and JavaScript. Vite, Playwright, ESLint, and Prettier are development dependencies; the panel has no runtime dependencies.
+- Use synthetic demo data and keep runtime fonts and images in `public/`. The panel does not load resources from other hosts.
+- Keep the panel scoped to its host, responsive to the available window, keyboard accessible, and compatible with reduced-motion preferences.
