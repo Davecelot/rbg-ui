@@ -77,6 +77,7 @@
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --dur-fast: 120ms;
   --dur-base: 180ms;
+  --dur-reveal: 240ms;
   --dur-slow: 600ms;
 
   --host-gutter: 16px;

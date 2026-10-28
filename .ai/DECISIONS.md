@@ -493,3 +493,33 @@ their shared opacity cap and stationary bottom-third mask remain unchanged.
 **Why:** Make positive and negative outcomes equally easy to identify while retaining labels, letters, and signs as non-color cues.
 
 **Watch out:** Do not recolor full rows, neutral metadata, ordinary cancel/close controls, or the brand badges. Outcome mapping must distinguish draws from losses.
+
+## 2026-10-28 — Orchestrated content entrances
+
+**Context:** The owner requested subtle appearances across every main tab,
+ordered left to right and top to bottom, without overloading navigation.
+
+**Decision:** The shell binds one shared content-reveal helper after screen
+entry. Native content groups (headings, paragraphs, paired stats, list items,
+table rows, controls, avatar stages and item tiles) fade in with a 4px rise.
+Groups enter in measured visual rows, then left to right within each row.
+The reveal duration is 240ms with the existing ease-out; a stagger spanning
+the fast duration (120ms) keeps the entire entrance within 360ms, independent
+of list size. This is an owner-requested exception to the usual 180ms view
+ceiling: the owner explicitly asked for gentle, soft motion without trending
+fast, while avoiding a slow sequence.
+Entrances run on the initial mount and first-level tab changes only. Sub-tab
+changes, filters, pagination, mode selection and other in-tab updates stay
+instant. Jogar mode selection updates the native radio state, action bar and
+URL without replacing the view. Persistent chrome and content outside the
+visible view are excluded.
+
+**Why:** A single choreography makes content changes easier to follow across
+all screens without individual screen timers, dependencies, layout animation,
+or nested effects on a group and its contents.
+
+**Watch out:** Content is visible by default and remains immediately usable.
+Focus and pointer interaction finish the target's entrance immediately.
+Screen cleanup cancels pending frames and running reveals on navigation.
+System reduced motion skips the effect and cancels it live when enabled.
+Keep later content units semantic so labels and values enter together.

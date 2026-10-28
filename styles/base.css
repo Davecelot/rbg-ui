@@ -1091,11 +1091,6 @@
   display: none;
 }
 
-.rbg .rbg-demo-label {
-  color: var(--grey-400);
-  font-size: var(--text-12);
-}
-
 .rbg .rbg-art {
   display: block;
   max-width: 100%;

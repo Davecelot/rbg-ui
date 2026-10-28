@@ -18,7 +18,7 @@ export default {
   label: 'Elenco e convites',
   states: ['default'],
   render: () => `
-    ${clubHead()}
+    ${clubHead({ leave: true })}
     <section class="clube__section" aria-labelledby="clube-escalacao">
       <div class="clube__section-head">
         <h3 id="clube-escalacao" class="clube__title">Escalação</h3>

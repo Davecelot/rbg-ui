@@ -28,7 +28,6 @@ test('every default screen has loaded local art and populated content', async ({
   }
   expect(failures).toEqual([]);
   expect(remote).toEqual([]);
-  await expect(page.getByText('Dados de exemplo', { exact: true })).toBeVisible();
 });
 
 test('fixtures keep identity, scoring, progress and ownership coherent', () => {

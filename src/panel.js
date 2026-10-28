@@ -2,6 +2,7 @@ import { bindArt } from './screens/art.js';
 import { icon } from './screens/icons.js';
 import { play } from './data/play.js';
 import { positions } from './data/positions.js';
+import { revealContent } from './reveal.js';
 
 const find = (list, id) => list.find((item) => item.id === id) ?? list[0];
 
@@ -21,7 +22,6 @@ const shell = (tabs, sizes) => `
     <header class="rbg-header">
       <h1 id="rbg-title" class="rbg-brand">RBG</h1>
       <div class="rbg-header__actions">
-        <span class="rbg-demo-label">Dados de exemplo</span>
         <button type="button" class="rbg-icon-button" data-action="settings" aria-label="Configurações" aria-expanded="false" aria-controls="rbg-settings">${icon('settings')}</button>
         <button type="button" class="rbg-icon-button" data-action="close" aria-label="Fechar">${icon('close')}</button>
       </div>
@@ -102,6 +102,7 @@ export function mountPanel(root, { tabs, modes, sizes, defaultSize, launcher }) 
   syncAmbientMotion();
   let cleanup = null;
   let renderVersion = 0;
+  let renderedTab = null;
   let queue = null;
   let queueTimer = null;
   const onSolo = () => state.tab.id === 'jogar' && state.mode.id === 'buscando';
@@ -172,26 +173,8 @@ export function mountPanel(root, { tabs, modes, sizes, defaultSize, launcher }) 
     }
   }
 
-  function render({ announce = false } = {}) {
-    const version = ++renderVersion;
-    const { tab, sub, view: screenState, mode } = state;
-    const hasSubs = tab.subs.length > 1;
-    const showSubtabs = hasSubs && tab.showSubtabs !== false;
-    syncTabs(tabList, 'tab', tab);
-
-    subList.hidden = !showSubtabs;
-    subList.setAttribute('aria-label', tab.label);
-    subList.innerHTML = showSubtabs ? tab.subs.map((item) => tabButton(item, 'sub')).join('') : '';
-    if (showSubtabs) syncTabs(subList, 'sub', sub);
-
-    cleanup?.();
-    cleanup = null;
-    view.className = `rbg-view rbg-screen--${tab.id} rbg-sub--${sub.id}`;
-    Object.assign(view.dataset, { tab: tab.id, sub: sub.id, state: screenState });
-    view.setAttribute('aria-labelledby', showSubtabs ? `rbg-sub-${sub.id}` : `rbg-tab-${tab.id}`);
-    view.innerHTML = sub.render({ state: screenState, data: { queue, mode: mode.id } });
-    view.scrollTop = 0;
-
+  function syncActionbar() {
+    const { tab, mode } = state;
     actionbar.dataset.mode = mode.id;
     actionbar.dataset.queue = queue ? 'searching' : 'idle';
     actionbar.querySelector('.rbg-actionbar__eyebrow').textContent = queue ? 'Procurando partida' : mode.eyebrow;
@@ -212,15 +195,41 @@ export function mountPanel(root, { tabs, modes, sizes, defaultSize, launcher }) 
     reason.hidden = Boolean(queue) || !reasonText;
     if (!queue && reasonText) cta.setAttribute('aria-describedby', reason.id);
     else cta.removeAttribute('aria-describedby');
+  }
 
+  function syncUrl() {
     const query = new URLSearchParams({
-      tab: tab.id,
-      sub: sub.id,
-      state: screenState,
-      mode: mode.id,
+      tab: state.tab.id,
+      sub: state.sub.id,
+      state: state.view,
+      mode: state.mode.id,
       size: state.size.id,
     });
     history.replaceState(null, '', `?${query}`);
+  }
+
+  function render({ announce = false } = {}) {
+    const version = ++renderVersion;
+    const { tab, sub, view: screenState, mode } = state;
+    const hasSubs = tab.subs.length > 1;
+    const showSubtabs = hasSubs && tab.showSubtabs !== false;
+    syncTabs(tabList, 'tab', tab);
+
+    subList.hidden = !showSubtabs;
+    subList.setAttribute('aria-label', tab.label);
+    subList.innerHTML = showSubtabs ? tab.subs.map((item) => tabButton(item, 'sub')).join('') : '';
+    if (showSubtabs) syncTabs(subList, 'sub', sub);
+
+    cleanup?.();
+    cleanup = null;
+    view.className = `rbg-view rbg-screen--${tab.id} rbg-sub--${sub.id}`;
+    Object.assign(view.dataset, { tab: tab.id, sub: sub.id, state: screenState });
+    view.setAttribute('aria-labelledby', showSubtabs ? `rbg-sub-${sub.id}` : `rbg-tab-${tab.id}`);
+    view.innerHTML = sub.render({ state: screenState, data: { queue, mode: mode.id } });
+    view.scrollTop = 0;
+
+    syncActionbar();
+    syncUrl();
     if (announce) {
       const jogarContext = { buscando: 'Ranqueada Solo', amistosos: 'Amistosos' }[mode.id];
       status.textContent = hasSubs
@@ -233,7 +242,10 @@ export function mountPanel(root, { tabs, modes, sizes, defaultSize, launcher }) 
     const nextCleanup = sub.enter?.(view, api) ?? null;
     if (version === renderVersion) {
       const unbindArt = bindArt(view);
+      const stopReveal = tab.id !== renderedTab ? revealContent(view) : null;
+      renderedTab = tab.id;
       cleanup = () => {
+        stopReveal?.();
         nextCleanup?.();
         unbindArt();
       };
@@ -257,6 +269,11 @@ export function mountPanel(root, { tabs, modes, sizes, defaultSize, launcher }) 
   function setMode(id) {
     if (queue) return;
     state.mode = find(modes, id);
+    if (state.tab.id === 'jogar' && state.mode.id.startsWith('escolhido-')) {
+      syncActionbar();
+      syncUrl();
+      return;
+    }
     render();
   }
 
@@ -267,6 +284,7 @@ export function mountPanel(root, { tabs, modes, sizes, defaultSize, launcher }) 
   }
 
   function close() {
+    for (const animation of view.getAnimations({ subtree: true })) animation.cancel();
     root.hidden = true;
     if (launcher) {
       launcher.hidden = false;

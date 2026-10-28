@@ -19,7 +19,6 @@ export default {
     <section class="clube__section" aria-labelledby="clube-uniformes">
       <div class="clube__section-head">
         <h3 id="clube-uniformes" class="clube__title">Uniformes</h3>
-        <button type="button" class="rbg-link clube__leave" data-pending="Pedir para sair">Pedir para sair</button>
       </div>
       <p class="clube__note">Só o capitão grava os uniformes. Na partida de times cada um entra vestido com eles.</p>
       <ul class="clube__uniforms">${club.uniforms.map(uniform).join('')}</ul>

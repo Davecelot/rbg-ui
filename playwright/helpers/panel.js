@@ -56,11 +56,13 @@ export async function settle(page) {
     .locator('.rbg-panel img')
     .evaluateAll((images) => Promise.all(images.map((image) => image.decode().catch(() => {}))));
   await page.evaluate(() =>
-    Promise.all(
-      document
-        .getAnimations()
-        .filter((animation) => animation.effect?.getTiming().iterations !== Infinity)
-        .map((animation) => animation.finished.catch(() => {})),
+    new Promise(requestAnimationFrame).then(() =>
+      Promise.all(
+        document
+          .getAnimations()
+          .filter((animation) => animation.effect?.getTiming().iterations !== Infinity)
+          .map((animation) => animation.finished.catch(() => {})),
+      ),
     ),
   );
 }

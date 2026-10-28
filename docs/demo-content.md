@@ -1,6 +1,6 @@
 # Populated demo fixtures
 
-Fictional content and temporary art exercise every screen on first load. These fixtures are examples, not verified product facts. The panel labels them “Dados de exemplo”. Captured account values and raw screenshots are excluded from this repository snapshot.
+Fictional content and temporary art exercise every screen on first load. These fixtures are examples, not verified product facts. Captured account values and raw screenshots are excluded from this repository snapshot.
 
 ## Synthetic demo data
 

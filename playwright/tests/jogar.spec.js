@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { gotoScreen, position } from '../helpers/panel.js';
+import { gotoScreen, position, settle } from '../helpers/panel.js';
 
 const cta = '.rbg-actionbar [data-action=primary]';
 
@@ -75,6 +75,7 @@ test('mode choices are one row with a readable selected state and keyboard selec
   const choices = page.locator('.jogar__mode');
   await expect(choices).toHaveCount(2);
   await expect(page.locator('.jogar__mode input:checked')).toHaveCount(0);
+  await settle(page);
   const boxes = await choices.evaluateAll((items) => items.map((item) => item.getBoundingClientRect().top));
   expect(new Set(boxes).size).toBe(1);
   await page.getByRole('radio', { name: /Ranqueada Solo/ }).focus();

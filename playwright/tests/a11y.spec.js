@@ -9,6 +9,7 @@ const SELF_CHECK = path.resolve(
 );
 
 test('no HIGH-impact a11y self-check failures on any screen state', async ({ page }) => {
+  test.setTimeout(60_000);
   await page.addInitScript(() => (window.A11Y_SELF_CHECK_HEADLESS = true));
   const failures = [];
   for (const screen of everyScreen()) {
