@@ -4,7 +4,7 @@ description: >
   {What the skill does}. Trigger: {explicit condition that should cause an
   agent to invoke this skill}.
 metadata:
-  author: '{your git user.name — not a generic project name}'
+  author: davecelot
   version: '0.1.0'
   changelog: 'Initial skill authored; {why it matters}; {where it affects}'
   auto-invoke: "{explicit trigger condition, mirrored into AGENTS.md's auto-invoke table}"

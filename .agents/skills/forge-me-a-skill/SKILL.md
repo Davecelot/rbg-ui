@@ -112,15 +112,15 @@ directory can't hijack them.
 
 ## Frontmatter fields
 
-| Field                    | Required | Format              | Description                                                                                               |
-| ------------------------ | -------- | ------------------- | --------------------------------------------------------------------------------------------------------- |
-| `name`                   | Yes      | `lowercase-hyphens` | Matches the skill's directory name.                                                                       |
-| `description`            | Yes      | String              | What the skill does, plus an explicit `Trigger: ...` clause so an agent can recognize when to invoke it.  |
-| `metadata.author`        | Yes      | String              | The **contributor's own name** (their git `user.name`) — not a generic value like a project or team name. |
-| `metadata.version`       | Yes      | Semver string       | `"X.Y.Z"`.                                                                                                |
-| `metadata.changelog`     | Yes      | Structured text     | `"<what changed>; <why it matters>; <where it affects>"`.                                                 |
-| `metadata.auto-invoke`   | Yes      | String              | Explicit trigger condition — mirrors a row in `AGENTS.md`'s auto-invoke table.                            |
-| `metadata.allowed-tools` | Yes      | List                | Tools this skill actually needs.                                                                          |
+| Field                    | Required | Format              | Description                                                                                              |
+| ------------------------ | -------- | ------------------- | -------------------------------------------------------------------------------------------------------- |
+| `name`                   | Yes      | `lowercase-hyphens` | Matches the skill's directory name.                                                                      |
+| `description`            | Yes      | String              | What the skill does, plus an explicit `Trigger: ...` clause so an agent can recognize when to invoke it. |
+| `metadata.author`        | Yes      | String              | The contributor's public handle. Use `davecelot` for this repository.                                    |
+| `metadata.version`       | Yes      | Semver string       | `"X.Y.Z"`.                                                                                               |
+| `metadata.changelog`     | Yes      | Structured text     | `"<what changed>; <why it matters>; <where it affects>"`.                                                |
+| `metadata.auto-invoke`   | Yes      | String              | Explicit trigger condition — mirrors a row in `AGENTS.md`'s auto-invoke table.                           |
+| `metadata.allowed-tools` | Yes      | List                | Tools this skill actually needs.                                                                         |
 
 ## Changelog format
 

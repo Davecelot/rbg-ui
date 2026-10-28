@@ -167,14 +167,14 @@ cell as <th scope="row">.
 **Alt text policy for the panel** (enforced by `audit-a11y.py`'s
 `decorative-asset-alt` / `informative-asset-alt` rules):
 
-| Asset                                   | Folder                   | Alt                                                                                                                           |
-| --------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| RBG badges (flat, pixel)                | `public/assets/brand/`   | `"RBG"` once (the header brand); decorative repeats `alt=""`                                                                  |
+| Asset                                   | Folder                   | Alt                                                                                                                              |
+| --------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| RBG badges (flat, pixel)                | `public/assets/brand/`   | `"RBG"` once (the header brand); decorative repeats `alt=""`                                                                     |
 | Player avatars (pixel art)              | `public/assets/avatars/` | pt-BR, with the player name: `"Avatar de Atleta Exemplo"`; `alt=""` if the name is adjacent text **and** the avatar adds nothing |
-| Item / reward art                       | `public/assets/items/`   | What the item is, in pt-BR (`"Coroa dourada"`); rarity and price stay visible text                                            |
-| Rank tier medals                        | inline SVG or `assets/`  | The tier as text (`"Prata IV"`); if the tier is also visible text next to it, `alt=""`                                        |
-| Pitch lines, laurel ornaments, patterns | inline SVG / CSS         | Decorative: `alt=""` / `aria-hidden="true"`                                                                                   |
-| Icons inside a labelled button          | inline SVG               | `aria-hidden="true"`; the button carries the name                                                                             |
+| Item / reward art                       | `public/assets/items/`   | What the item is, in pt-BR (`"Coroa dourada"`); rarity and price stay visible text                                               |
+| Rank tier medals                        | inline SVG or `assets/`  | The tier as text (`"Prata IV"`); if the tier is also visible text next to it, `alt=""`                                           |
+| Pitch lines, laurel ornaments, patterns | inline SVG / CSS         | Decorative: `alt=""` / `aria-hidden="true"`                                                                                      |
+| Icons inside a labelled button          | inline SVG               | `aria-hidden="true"`; the button carries the name                                                                                |
 
 ```html
 <!-- ✅ informative -->
