@@ -40,6 +40,8 @@ and heading text.
 
 ### Brand & type
 
+- **2026-10-31** — Full rounded rarity outlines replace artwork-edge strips
+- **2026-10-31** — Panel-wide softer shapes: 16px surfaces, 8px controls, original typography retained
 - **2026-10-27** — Paid products use ink/paper contrast; confirmed rarity gets one static artwork-edge strip and a neutral label
 - **2026-10-26** — Palette from the RBG badges + Nike discipline; values provisional
 - **2026-10-26** — Typeface: Archivo (condensed for display, normal for UI), self-hosted
@@ -50,6 +52,54 @@ and heading text.
 - **2026-10-19** — Animate a registered `@property`, not a plain custom property (carried over)
 
 ---
+
+## 2026-10-31 — Full rounded rarity outlines
+
+**Context:** The owner found the rounded bottom rarity strips awkward and
+requested a full mark around the artwork.
+
+**Decision:** Replace the 4px bottom strip with a static 2px outline on all
+four sides of the existing item-art field, following its corner radius.
+Reuse the confirmed rarity color and neutral label across tiles and sheets;
+unknown rarity stays unmarked. The overlay does not resize or clip artwork
+and does not intercept pointer input.
+
+**Why:** A continuous outline follows the new shape treatment cleanly.
+
+**Watch out:** This supersedes the bottom-strip-only decision below. Keep
+rarity as item data, with no glow, colored fill or change to paid-access
+styling. Typography and layout remain unchanged.
+
+## 2026-10-31 — Panel-wide softer shapes with original typography
+
+**Context:** The owner requested more expressive shapes using
+[Champions4good](https://styles.refero.design/style/e02671e1-ba31-465f-bb7f-b124bf91ab5e)
+as a reference. After reviewing a three-screen pilot, the owner rejected
+larger text and asked to change shapes only, then authorized extending
+that treatment across the whole panel.
+
+**Decision:** Use `--radius-feature: 16px` for the shell, settings, avatar
+stages, feature choices, final reward and bordered customization detail.
+Use `--radius-control: 8px` for inputs, equipment options, item interaction
+frames, product-art fields, number choices and queue seats. Round exposed
+sheet corners to 16px; use pills for small position/result labels, color
+choices and progress tracks. Keep tables, list separators and tab structure.
+Retain original typography, padding, spacing and composition throughout.
+
+The full-panel review also exposed two layout defects: reward-sheet focus
+could scroll the shell's `overflow: hidden` container, and regular/wide
+lineups used three columns for four player fields. Use `overflow: clip`
+on the shell to keep scrolling inside the view; align player name and rank
+in an explicit identity column at every size. A final-reward regression
+check preserves header and action-bar positions on sheet open and close.
+
+**Why:** Selective soft corners add character without making text dominate
+the panel or changing its established density.
+
+**Watch out:** This supersedes the earlier pill-only surface rule. Keep
+the palette, Archivo, pixel artwork, content, interactions and motion
+unchanged. Round surface backgrounds without clipping pixel artwork or
+focus rings. Do not introduce boxes around previously unboxed content.
 
 ## 2026-10-27 — Review evidence for CSS isolation and native scrolling
 

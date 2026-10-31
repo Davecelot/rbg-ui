@@ -49,9 +49,10 @@ no gold "premium" accents, no card grids standing in for composition, no
 card-in-card, no emoji as icons or items, no filler copy, no decorative
 motion, no esports clichés.
 
-The owner-approved rarity exception is one static 4px strip at an artwork
-edge plus a neutral text label. It marks confirmed rarity, never paid
-access or state; unknown rarity stays neutral. Full rarity frames, tinted
+The owner-approved rarity exception is one static 2px rounded outline around
+item artwork plus a neutral text label (2026-10-31; replaces the bottom
+strip). It marks confirmed rarity, never paid access or state; unknown
+rarity stays neutral. Full-card rarity frames, tinted
 product surfaces and glow remain excluded.
 
 ## Where to route

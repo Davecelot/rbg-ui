@@ -66,6 +66,8 @@
   --space-12: 48px;
 
   --radius-pill: 999px;
+  --radius-feature: 16px;
+  --radius-control: 8px;
   --track-display: -0.01em;
 
   /* Host avatar sprite at 1×; always shown at an integer multiple. */

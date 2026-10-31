@@ -186,6 +186,7 @@
 }
 
 .clube__uniform-art--empty {
+  border-radius: var(--radius-control);
   display: grid;
   place-items: center;
   border: var(--hairline) solid var(--hairline-on-ink);
@@ -301,6 +302,7 @@
 }
 
 .clube__form li {
+  border-radius: var(--radius-pill);
   display: grid;
   place-items: center;
   width: 24px;

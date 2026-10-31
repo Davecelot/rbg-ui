@@ -180,23 +180,23 @@ Check every screen against this list. The current app
 (`reference/current-app/`) shows most of them; screenshot numbers in
 `docs/screen-inventory.md` § Current UI problems.
 
-| Tell                                              | Gate         | What the made version does                                                                  |
-| ------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------- |
-| Purple, navy or neon night gradients behind views | 2a           | flat ink or paper surfaces                                                                  |
-| Glowing borders, halos around avatars and cards   | 29           | hairlines; depth by ink/paper steps                                                         |
-| Orange or gold as the "premium" accent and CTA    | 86, 23       | ink/paper pill, pitch green only for "go play"                                              |
-| Emoji as item art or icons (`🎉 👑`)              | 30a, 80      | the real pixel asset, an SVG icon, or `[item]`                                              |
-| Card inside a card; every block boxed             | 4, 3         | one containment layer; rows and rules                                                       |
-| Rarity rainbow frames on every shop slot          | 29, 86       | unframed slots, one small rarity chip or static 4px artwork-edge strip with a neutral label |
-| `LENDÁRIA` / `NOVO` chips everywhere              | 66, 67       | one chip where it matters, sentence case, untracked                                         |
-| Angled esports slashes, clipped corners           | direction    | square fields, pills only for controls                                                      |
-| Hexagon frames, shields, HUD brackets             | 80, 47c      | the real rank medal asset or the tier as type                                               |
-| Fake 3D / bevelled / italic buttons               | 38ii, 47c    | the flat pill, roman type                                                                   |
-| Every-stat-in-a-box dashboards                    | 3, data-viz  | one hero figure, the rest in a quiet row                                                    |
-| Cramped tables with outlined pills for pagination | 72, 30a      | rules-only table, `<nav>` with SVG chevrons                                                 |
-| Small tracked caps eyebrows over every block      | 54, 67       | the heading says it, or nothing                                                             |
-| Middle-dot meta strings                           | 63           | two settings, columns or line breaks                                                        |
-| Gradient progress bars, ring gauges               | 2b, data-viz | one flat bar with the figure as text                                                        |
-| Glow pulses, shimmer sweeps, rotating rays        | 18, 29       | no loop; one settle on a real reward                                                        |
-| A banner repeated on every tab                    | 69           | say it once, in its own tab or the action bar                                               |
-| CSS-drawn pitch, net or stadium behind the avatar | 47c, 84      | a flat field; pitch lines only as structure (`texture.md`)                                  |
+| Tell                                              | Gate         | What the made version does                                                                                    |
+| ------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------- |
+| Purple, navy or neon night gradients behind views | 2a           | flat ink or paper surfaces                                                                                    |
+| Glowing borders, halos around avatars and cards   | 29           | hairlines; depth by ink/paper steps                                                                           |
+| Orange or gold as the "premium" accent and CTA    | 86, 23       | ink/paper pill, pitch green only for "go play"                                                                |
+| Emoji as item art or icons (`🎉 👑`)              | 30a, 80      | the real pixel asset, an SVG icon, or `[item]`                                                                |
+| Card inside a card; every block boxed             | 4, 3         | one containment layer; rows and rules                                                                         |
+| Rarity rainbow frames around entire shop cards    | 29, 86       | one small rarity chip or static 2px rounded artwork outline with a neutral label (owner-approved, 2026-10-31) |
+| `LENDÁRIA` / `NOVO` chips everywhere              | 66, 67       | one chip where it matters, sentence case, untracked                                                           |
+| Angled esports slashes, clipped corners           | direction    | flat rounded fields and controls per rbg-taste                                                                |
+| Hexagon frames, shields, HUD brackets             | 80, 47c      | the real rank medal asset or the tier as type                                                                 |
+| Fake 3D / bevelled / italic buttons               | 38ii, 47c    | the flat pill, roman type                                                                                     |
+| Every-stat-in-a-box dashboards                    | 3, data-viz  | one hero figure, the rest in a quiet row                                                                      |
+| Cramped tables with outlined pills for pagination | 72, 30a      | rules-only table, `<nav>` with SVG chevrons                                                                   |
+| Small tracked caps eyebrows over every block      | 54, 67       | the heading says it, or nothing                                                                               |
+| Middle-dot meta strings                           | 63           | two settings, columns or line breaks                                                                          |
+| Gradient progress bars, ring gauges               | 2b, data-viz | one flat bar with the figure as text                                                                          |
+| Glow pulses, shimmer sweeps, rotating rays        | 18, 29       | no loop; one settle on a real reward                                                                          |
+| A banner repeated on every tab                    | 69           | say it once, in its own tab or the action bar                                                                 |
+| CSS-drawn pitch, net or stadium behind the avatar | 47c, 84      | a flat field; pitch lines only as structure (`texture.md`)                                                    |

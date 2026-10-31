@@ -29,7 +29,7 @@ tightest, then at `size-1280`.
 
 **Grades:** `FAIL` (Floor) · `REFLEX` (an unanswered Reflex: fix or waive) · `WAIVED` · `WARN` (confirm or dismiss) · `ANSWERED` (a Finish finding with a reason) · `NOTE`. "0 FAIL" stays a true statement about the Floor.
 
-**\*Floor in this panel:** 29 (glow and wash) is Reflex upstream and sloplint grades it `REFLEX`; `rbg-taste` blocks it outright, so here it is never waived. The same holds for 3 (card tells) whenever the cards are rarity-framed.
+**\*Floor in this panel:** 29 (glow and wash) is Reflex upstream and sloplint grades it `REFLEX`; `rbg-taste` blocks it outright, so here it is never waived. The same holds for 3 (card tells) whenever entire cards are rarity-framed. The owner-approved static 2px outline around item artwork is allowed (2026-10-31); it does not frame the text or card.
 
 **Not in panel scope** (landing-page gates upstream keeps; the stamp's `shape: app screen` makes sloplint skip most of them): 6b's fold half, 8's landing template half, 42 (nav and footer), 44a to 44d (the fold), 56 (stacked sticky), 59 (section gaps), 76's photo-library credit, 83 (the photo wall), 85 (the email close). Retired numbers (5, 13, 14, 21, 31, 35, 36, 43, 45, 51, 52, 57, 60, 61) are never reused.
 

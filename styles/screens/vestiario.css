@@ -101,6 +101,7 @@
 }
 
 .vestiario__number span {
+  border-radius: var(--radius-control);
   display: grid;
   place-items: center;
   height: 44px;
@@ -166,6 +167,7 @@
 }
 
 .vestiario__color {
+  border-radius: var(--radius-pill);
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -182,6 +184,7 @@
 }
 
 .vestiario__swatch {
+  border-radius: var(--radius-pill);
   width: 16px;
   height: 16px;
   border: var(--hairline) solid var(--grey-500);

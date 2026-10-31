@@ -61,6 +61,7 @@
 }
 
 .jogar__vote-options span {
+  border-radius: var(--radius-pill);
   display: grid;
   min-width: 140px;
   padding: var(--space-2) var(--space-4);
@@ -106,7 +107,7 @@
 
 .jogar__player {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto 36px minmax(0, 1fr) auto;
   align-items: center;
   gap: var(--space-1) var(--space-3);
   min-width: 0;
@@ -115,6 +116,7 @@
 }
 
 .jogar__position {
+  border-radius: var(--radius-pill);
   grid-row: span 2;
   padding: 1px var(--space-2);
   border: var(--hairline) solid var(--grey-500);
@@ -135,22 +137,30 @@
 }
 
 .jogar__player strong {
+  grid-column: 3;
+  grid-row: 1;
   min-width: 0;
   overflow-wrap: anywhere;
   font-weight: 500;
 }
 
 .jogar__player-rank {
-  grid-column: 2 / -1;
+  grid-column: 3;
+  grid-row: 2;
   color: var(--grey-300);
   font-size: var(--text-13);
 }
 
 .jogar__autofill {
-  grid-column: 3;
+  grid-column: 4;
   grid-row: 1;
   color: var(--grey-300);
   font-size: var(--text-12);
+}
+
+.jogar__player .rbg-link {
+  grid-column: 4;
+  grid-row: 2;
 }
 
 .jogar__match--redirect > .jogar__title {
@@ -205,6 +215,7 @@
   min-height: 224px;
   padding: var(--space-6);
   border: 2px solid var(--grey-500);
+  border-radius: var(--radius-feature);
   background: var(--ink);
   cursor: pointer;
 }
@@ -329,6 +340,7 @@
 }
 
 .jogar__seats li {
+  border-radius: var(--radius-control);
   display: grid;
   place-items: center;
   height: 32px;

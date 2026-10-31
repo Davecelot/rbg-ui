@@ -43,6 +43,7 @@
   width: 100%;
   padding: var(--space-4);
   border: 0;
+  border-radius: var(--radius-feature);
   background: var(--surface-green-1);
   color: var(--paper);
   text-align: left;

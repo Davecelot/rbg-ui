@@ -53,6 +53,7 @@
 }
 
 .rbg-panel {
+  border-radius: var(--radius-feature);
   position: relative;
   isolation: isolate;
   container: rbg / size;
@@ -65,7 +66,7 @@
   background: var(--ink);
   color: var(--paper);
   border: var(--hairline) solid var(--hairline-on-ink);
-  overflow: hidden;
+  overflow: clip;
 }
 
 .rbg .rbg-ambient {
@@ -145,6 +146,7 @@
 }
 
 .rbg-settings {
+  border-radius: var(--radius-feature);
   position: absolute;
   top: calc(100% - var(--space-2));
   right: var(--space-6);
@@ -369,6 +371,7 @@
 }
 
 .rbg-progress {
+  border-radius: var(--radius-pill);
   appearance: none;
   display: block;
   width: 100%;
@@ -378,14 +381,17 @@
 }
 
 .rbg-progress::-webkit-progress-bar {
+  border-radius: var(--radius-pill);
   background: var(--hairline-on-ink);
 }
 
 .rbg-progress::-webkit-progress-value {
+  border-radius: var(--radius-pill);
   background: var(--pitch);
 }
 
 .rbg-progress::-moz-progress-bar {
+  border-radius: var(--radius-pill);
   background: var(--pitch);
 }
 
@@ -551,6 +557,7 @@
 }
 
 .equip__tile {
+  border-radius: var(--radius-control);
   position: relative;
   display: grid;
   justify-items: center;
@@ -622,6 +629,7 @@
 }
 
 .rbg-tile__button {
+  border-radius: var(--radius-control);
   display: grid;
   align-content: start;
   justify-items: start;
@@ -685,6 +693,7 @@
 }
 
 .rbg-stage {
+  border-radius: var(--radius-feature);
   display: grid;
   justify-items: center;
   align-self: start;
@@ -755,6 +764,7 @@
 }
 
 .rbg-input {
+  border-radius: var(--radius-control);
   min-width: 0;
   min-height: 44px;
   padding: 0 var(--space-4);
@@ -770,6 +780,7 @@
 }
 
 .rbg-sheet[open] {
+  border-radius: var(--radius-feature) 0 0 var(--radius-feature);
   position: absolute;
   inset: 0 0 0 auto;
   z-index: 1;
@@ -1157,31 +1168,34 @@
 }
 
 .rbg .rbg-product-art {
+  border-radius: var(--radius-control);
   position: relative;
   background: var(--surface-green-2);
 }
 
 .rbg .rbg-product-art::after {
+  border-radius: inherit;
   position: absolute;
-  inset: auto 0 0;
-  height: var(--space-1);
+  inset: 0;
+  border: 2px solid transparent;
+  pointer-events: none;
   content: '';
 }
 
 .rbg .rbg-product-art[data-rarity='comum']::after {
-  background: var(--rarity-common);
+  border-color: var(--rarity-common);
 }
 
 .rbg .rbg-product-art[data-rarity='rara']::after {
-  background: var(--rarity-rare);
+  border-color: var(--rarity-rare);
 }
 
 .rbg .rbg-product-art[data-rarity='épica']::after {
-  background: var(--rarity-epic);
+  border-color: var(--rarity-epic);
 }
 
 .rbg .rbg-product-art[data-rarity='lendária']::after {
-  background: var(--rarity-legendary);
+  border-color: var(--rarity-legendary);
 }
 
 .rbg .rbg-sheet__art {

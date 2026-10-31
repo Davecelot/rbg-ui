@@ -24,7 +24,7 @@ panel; check them at compact first.
 - **Ink, not black** (7a): `#111`-like ink; paper may be pure white on the record (7b waiver, SKILL.md § The stamp).
 - **One brand signal.** Pitch green marks live, ready, yours, primary progress and the primary CTA when ink/paper won't do; under about 5% of a view otherwise (23). Never green text for body.
 - **Semantic red** (owner-approved, 2026-10-28): `--danger` marks negative outcomes, negative statistics, and danger actions. Paired victories use pitch green; draws and zero deltas stay neutral. Keep text/sign cues and never tint full rows.
-- **Data colours are data.** Rank tiers (Prata, Ouro, Platina…) and rarities (`Lendária`…) may colour a small chip, a medal or a sprite's own pixels. Rarity may instead use one static 4px strip at the artwork edge with a neutral text label (owner-approved, 2026-10-27). Never a full frame, a card fill, a glow, a background or a CTA (86, 29).
+- **Data colours are data.** Rank tiers (Prata, Ouro, Platina…) and rarities (`Lendária`…) may colour a small chip, a medal or a sprite's own pixels. Item rarity may instead use one static 2px rounded outline around the artwork with a neutral text label (owner-approved, 2026-10-31; replaces the bottom strip). Never a full-card frame, a card fill, a glow, a background or a CTA (86, 29).
 - **Contrast:** body 4.5:1, display 3:1, measured over the sprite or fill actually behind it (40). Text on green takes its paired ink token (41); grey text never sits on a coloured field.
 - **Bans:** any gradient on chrome (2a, 2b); glow shadows, halos, bloom, vignettes (29); orange/gold as premium (86); alpha as a colour's definition (alpha is for overlays); red and green as the only win/loss signal (pair with V/D/E or a word).
 

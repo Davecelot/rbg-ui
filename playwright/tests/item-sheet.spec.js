@@ -1,6 +1,25 @@
 import { expect, test } from '@playwright/test';
 import { gotoScreen } from '../helpers/panel.js';
 
+test('opening and closing the final reward keeps the shell in place', async ({ page }) => {
+  await gotoScreen(page, { tab: 'passe' });
+  const panel = page.locator('.rbg-panel');
+  const header = page.locator('.rbg-header');
+  const bar = page.locator('.rbg-actionbar');
+  const shellPosition = async () => ({
+    scroll: await panel.evaluate((element) => element.scrollTop),
+    header: await header.boundingBox(),
+    bar: await bar.boundingBox(),
+  });
+  const before = await shellPosition();
+  await page.locator('.passe__final').click();
+  await expect(page.locator('.rbg-sheet [data-sheet-close]')).toBeFocused();
+  expect(await shellPosition()).toEqual(before);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.passe__final')).toBeFocused();
+  expect(await shellPosition()).toEqual(before);
+});
+
 test('a pass reward opens its sheet; Esc closes it first and focus returns to the tile', async ({ page }) => {
   await gotoScreen(page, { tab: 'passe' });
   const tile = page.locator('.passe__track [data-item="passe-8"]');

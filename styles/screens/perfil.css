@@ -249,6 +249,7 @@
 }
 
 .profile-customize .equip__detail {
+  border-radius: var(--radius-feature);
   align-content: start;
   min-height: 100%;
   padding: var(--space-4);

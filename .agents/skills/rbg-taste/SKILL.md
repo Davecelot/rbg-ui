@@ -60,9 +60,11 @@ rest steps back.
   metadata, hairlines and disabled; **pitch green** (from the badge laurel)
   as the brand signal — live, ready, yours, primary progress, the main CTA
   when not ink/paper. Rank-tier and rarity colors exist **only as data**
-  (a tier chip, a medal, or one static 4px rarity strip at an artwork edge),
-  never as full frames, glows or backgrounds. The strip has a neutral text
-  rarity label; paid access uses ink/paper contrast, not a rarity color.
+  (a tier chip, a medal, or one static 2px outline around item artwork).
+  The owner approved a full rounded rarity outline on 2026-10-31,
+  replacing the bottom strip. Keep its neutral text rarity label and no
+  glow or colored background; paid access uses ink/paper contrast, not a
+  rarity color. Unknown rarity has no colored outline.
 - **Negative state exception** (owner-approved, 2026-10-28): `--danger` red marks defeats, abandonment, lost PDL, negative statistics, and danger actions. Paired wins use pitch green; draws and zero deltas stay neutral. Keep labels and signs; never tint entire rows or use red as decoration.
 - **Type**: **Archivo**, one self-hosted variable family (DECISIONS). The
   **display** cut — `--display-stretch: 62%`, `--display-weight: 800` — sets
@@ -76,9 +78,20 @@ rest steps back.
 - **Grid & density**: 4 px base, spacing scale from tokens. Small panel ⇒
   fewer, larger things: one primary list or one hero per view; tables over
   card mosaics for ranked data.
-- **Surfaces**: flat. Hairlines and whitespace separate; radius only for
-  pills (CTA, tags, segmented controls) and avatar frames if any. No card
-  inside a card. No shadows, no glass, no gradients behind text.
+- **Surfaces**: flat. Hairlines and whitespace separate. No card inside a
+  card. No shadows, no glass, no gradients behind text.
+- **Panel-wide shapes** (owner-approved, 2026-10-31): extend the softer
+  surfaces tested in Jogar and Passe throughout the panel, inspired by
+  [Champions4good](https://styles.refero.design/style/e02671e1-ba31-465f-bb7f-b124bf91ab5e).
+  Use `--radius-feature: 16px` for the panel, settings, avatar stages,
+  feature choices, reward feature and bordered customization detail; use
+  `--radius-control: 8px` for inputs, equipment options, item interaction
+  frames, product-art fields, number choices and queue seats. Pills serve
+  buttons, tags, color choices, small position/result labels and progress
+  tracks. Docked sheets round their exposed left corners. Keep tables,
+  list separators, tabs and actual pixel artwork structurally unchanged.
+  The owner rejected enlarged type: retain original typography, spacing,
+  composition, dark palette, Archivo and behavior.
 - **Pixel art**: integer scaling only (`image-rendering: pixelated`), on a
   plain field, never under a filter, glow or vignette.
 
