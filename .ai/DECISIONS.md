@@ -40,6 +40,7 @@ and heading text.
 
 ### Brand & type
 
+- **2026-10-31** — Owner-approved original human football pixel art replaces all temporary content artwork
 - **2026-10-31** — Full rounded rarity outlines replace artwork-edge strips
 - **2026-10-31** — Panel-wide softer shapes: 16px surfaces, 8px controls, original typography retained
 - **2026-10-27** — Paid products use ink/paper contrast; confirmed rarity gets one static artwork-edge strip and a neutral label
@@ -52,6 +53,18 @@ and heading text.
 - **2026-10-19** — Animate a registered `@property`, not a plain custom property (carried over)
 
 ---
+
+## 2026-10-31 — Original human football pixel art
+
+**Context:** The owner requested human football-world pixel art inspired by an attached Brazilian football / Habbo-style promotional image, replacing the temporary character and item stand-ins throughout the panel. The owner explicitly chose original reference-inspired artwork and approved built-in image generation.
+
+**Decision:** Replace 133 content PNGs in place: eight four-direction players and their portraits, all ten existing item categories and aliases, fictional club crests and the coach. Generate five initial transparent source sheets and one corrective sheet with the built-in image tool, then mechanically export final sprites without smoothing. Reuse existing renderers and filenames; apply small exact-name artwork selections in the existing pass/shop data modules and an opaque token-based backing to banner identity. Preserve layouts, labels, RBG/RCS branding and rank crests. Record provenance and exact prompts in `docs/football-art-prompts.md`.
+
+**Why:** Human footballers, recognizable equipment and football-world collectibles make the prototype closer to the intended game without adding features, dependencies or a new asset-loading system. This owner-approved task is an explicit exception to the earlier prohibition on generated illustrations; it does not authorize generated brand marks.
+
+**Watch out:** Generated sheet dimensions and spacing may differ from the prompt: inspect cell boundaries before extraction. These images remain fictional demo illustrations, not verified product designs or official game assets. The old CC0 source licenses do not describe the replacement artwork. Small identity slots still use the existing panel sizing; inspect their pixel rendering at every host preset.
+
+**Review learning:** The first review-rangers pass returned LOW because replacement club-kit colors contradicted existing fixture labels. Reusing filenames alone does not preserve semantic identity: compare every declared color and named theme with the replacement image before acceptance. The owner approved Mender round 1; corrected artwork, named mappings and banner backing passed re-verification. The same five reviewers approved and the safety guard passed, yielding HIGH confidence. `docs/artwork-verification.md` records the independent verdicts and limits of the passing checks.
 
 ## 2026-10-31 — Full rounded rarity outlines
 

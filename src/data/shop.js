@@ -18,6 +18,7 @@ export const shop = {
   pinned: 'Vitrine fixada, vira em 19 h 47 min',
   featured: [
     item('escuta-aqui', 'Escuta Aqui', 'Comemoração', 'lendária', 'R$ 5,49', {
+      art: itemArt('Comemoração', 0),
       price: { eur: '€ 3,99', usd: 'US$ 3.99' },
     }),
     item('67', '67', 'Comemoração', 'lendária', 'R$ 5,49', { art: '/assets/items/comemoracao-67.png' }),

@@ -21,17 +21,18 @@ Purchases, gifting, redemption, and RCS matchmaking remain prototype actions.
 
 ## Art sources
 
-- [Bennyboi_hack, Basic 16x16 character sprites, 4 directional](https://opengameart.org/content/basic-16x16-character-sprites-4-directional),
-  CC0. Standing front/back/side frames and raised-arm poses were extracted;
-  magenta was made transparent. Clothing colors vary by fixture. Head crops
-  supply the ranking portraits. Frame selection uses existing avatar rotation.
-- [Kenney, Roguelike Characters](https://kenney.nl/assets/roguelike-characters),
-  CC0. Civilian sprite used for the coach. The supplied license is retained at
-  `public/assets/demo/kenney-license.txt`.
-- Club crests, kits, boots, banners, frames, cards, and title plaques are original
-  temporary raster compositions. Pose and celebration previews use the CC0
-  character poses. They are fixtures, not RBG branding or final game artwork.
+- The owner approved original generated football pixel art on 2026-10-31,
+  replacing the earlier CC0 character/coach stand-ins and temporary item and
+  club compositions. The built-in image tool produced the replacement art;
+  no third-party license is asserted for these generated illustrations.
+- Eight human footballers have consistent front, right, back and left views.
+  Ranking portraits are extracted from their front views. Equipment, poses,
+  celebrations, entrances, VS presentations, profile collectibles, fictional
+  club crests and the coach share the football-world direction.
+- [Generation prompts and export notes](football-art-prompts.md) record the
+  reference, provenance, exact prompts and mechanical sprite extraction.
+  These are illustrative fixtures, not official game assets or final designs.
 
-All assets are stored under `public/assets/`, with nearest-neighbor integer
-scaling. Existing RBG/RCS branding is preserved. No CDN, API, or remote image is
+All assets are stored under `public/assets/`, with nearest-neighbor pixel
+rendering. Existing RBG/RCS branding is preserved. No CDN, API, or remote image is
 loaded at runtime. Replace the local paths with final game artwork when supplied.

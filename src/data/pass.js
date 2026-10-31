@@ -107,8 +107,20 @@ for (let level = 1; level <= pass.levels; level++) {
   }
 }
 pass.track.sort((a, b) => a.level - b.level);
+const namedArt = {
+  'Banner Estádio': 2,
+  'Banner Noite': 7,
+  'Card Ouro': 7,
+  'Moldura Prata': 0,
+  'Moldura Azul': 1,
+  Meditação: 3,
+  'MVP no Pódio': 0,
+  'MVP Super-herói': 5,
+  'MVP no Trono': 6,
+  'MVP do Dragão': 7,
+};
 pass.track.forEach((reward) => {
-  reward.art = itemArt(reward.category, reward.name === 'Moldura Azul' ? 1 : reward.level);
+  reward.art = itemArt(reward.category, namedArt[reward.name] ?? reward.level);
   reward.preview = reward.art;
 });
 for (const group of pass.missions)
