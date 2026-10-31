@@ -27,8 +27,12 @@ const unit = [
 export function revealContent(view) {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const style = getComputedStyle(view);
-  const duration = parseFloat(style.getPropertyValue('--dur-reveal'));
-  const stagger = parseFloat(style.getPropertyValue('--dur-fast'));
+  const milliseconds = (token) => {
+    const value = style.getPropertyValue(token).trim();
+    return parseFloat(value) * (value.endsWith('ms') ? 1 : 1000);
+  };
+  const duration = milliseconds('--dur-reveal');
+  const stagger = milliseconds('--dur-fast');
   const distance = style.getPropertyValue('--space-1').trim();
   const rowGap = parseFloat(style.getPropertyValue('--space-2'));
   const easing = style.getPropertyValue('--ease-out').trim();

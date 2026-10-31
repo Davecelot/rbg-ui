@@ -16,6 +16,22 @@ const recordReveals = async (page) => {
 
 const revealCount = (page) => page.evaluate(() => window.reveals.length);
 
+test('entrances keep their timing when production CSS expresses durations in seconds', async ({ page }) => {
+  await recordReveals(page);
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await gotoScreen(page, { tab: 'perfil' });
+  await settle(page);
+  await page.addStyleTag({ content: '.rbg { --dur-reveal: .24s; --dur-fast: .12s; }' });
+  await page.getByRole('tab', { name: 'Ranking', exact: true }).click();
+  await settle(page);
+  const timings = await page.evaluate(() =>
+    window.reveals.filter(({ element }) => element.isConnected).map(({ options }) => options),
+  );
+  expect(timings.length).toBeGreaterThan(1);
+  expect(timings.every(({ duration }) => duration === 240)).toBe(true);
+  expect(Math.max(...timings.map(({ delay }) => delay))).toBe(120);
+});
+
 test('main tab changes enter in bounded visual order without animating chrome or nesting effects', async ({
   page,
 }, testInfo) => {
