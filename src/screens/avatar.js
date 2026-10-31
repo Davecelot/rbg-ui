@@ -1,4 +1,4 @@
-import { artImage, bindArt } from './art.js';
+import { artImage, artUrl, bindArt } from './art.js';
 import { player } from '../data/player.js';
 import { icon } from './icons.js';
 
@@ -69,7 +69,8 @@ export function bindTurn(view) {
       image.addEventListener('error', missing, { once: true });
       sprite.replaceChildren(image);
     }
-    if (image.getAttribute('src') !== nearest.src) image.src = nearest.src;
+    const src = artUrl(nearest.src);
+    if (image.getAttribute('src') !== src) image.src = src;
   };
   const down = (event) => {
     if (!event.isPrimary || event.button !== 0) return;

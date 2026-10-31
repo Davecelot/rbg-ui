@@ -523,3 +523,23 @@ Focus and pointer interaction finish the target's entrance immediately.
 Screen cleanup cancels pending frames and running reveals on navigation.
 System reduced motion skips the effect and cancels it live when enabled.
 Keep later content units semantic so labels and values enter together.
+
+## 2026-10-31 — Public GitHub Pages demo
+
+**Context:** The owner requested a public GitHub Pages deployment of the new UI.
+
+**Decision:** Publish the sanitized `Davecelot/rbg-ui` repository publicly and deploy its Vite `dist/` output using GitHub Actions on `main`. This supersedes the earlier private-visibility restriction for this repository. Resolve validated runtime image paths through Vite’s base URL, matching the existing `vite build --base ./` output.
+
+**Why:** The UI has no backend and needs only static hosting. Reuse the existing build without adding dependencies or a second hosting service.
+
+**Watch out:** The remote history is a separate sanitized snapshot. Publish changes on top of that history; never push the local reference captures or local history. Pages serves synthetic demo data and local assets publicly. Real purchases, gifting, redemption, and matchmaking remain prototype actions.
+
+## 2026-10-31 — Owner-controlled public contributions
+
+**Context:** The owner requested sole authority over contribution approval and repository writes when publishing publicly.
+
+**Decision:** Assign all files to `@Davecelot` using CODEOWNERS; require code-owner approval for contributions; restrict `main` updates to the repository admin, currently only Davecelot. Preserve owner direct pushes because GitHub disallows self-approval. Block force pushes and deletion even for the owner. Remove the existing non-owner collaborator’s write access; contributions can use forks and pull requests. This extends the earlier main-only workflow to permit external contribution PRs at the owner’s request.
+
+**Why:** CODEOWNERS identifies the reviewer; server-side rules and collaborator permissions enforce control. Pin deployment actions, disable persisted checkout credentials, limit Actions to approved GitHub actions, use read-only tokens by default, and enable available GitHub secret/dependency protections.
+
+**Watch out:** Repository admin bypass is role-based; granting another admin would extend bypass authority. Public readers can copy and fork published code. Keep private source captures and the original local history excluded. Owner account authentication settings are managed separately by the owner.

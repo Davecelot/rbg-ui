@@ -1,8 +1,10 @@
+import { artUrl } from '../art.js';
+
 export function identitySlot(src, type, name, passOwner = false) {
   const label = type === 'avatar' ? 'Avatar' : 'Escudo';
   const asset = /^\/assets\/[\w/.-]+$/.test(src ?? '');
   return `<span class="ranking__identity rbg-slot${passOwner ? ' ranking__identity--pass' : ''}" data-slot="${type}" data-alt="${label} de ${name}">
-    ${asset ? `<img src="${src}" width="48" height="48" alt="${label} de ${name}" />` : `[${label.toLowerCase()}]`}
+    ${asset ? `<img src="${artUrl(src)}" width="48" height="48" alt="${label} de ${name}" />` : `[${label.toLowerCase()}]`}
   </span>`;
 }
 

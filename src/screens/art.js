@@ -1,6 +1,8 @@
+export const artUrl = (src) => `${import.meta.env?.BASE_URL ?? '/'}${src.slice(1)}`;
+
 export function artImage(src, alt, size = 64) {
   return /^\/assets\/[\w/.-]+$/.test(src ?? '')
-    ? `<img class="rbg-art" src="${src}" width="${size}" height="${size}" alt="${alt}" />`
+    ? `<img class="rbg-art" src="${artUrl(src)}" width="${size}" height="${size}" alt="${alt}" />`
     : `<span class="rbg-art__missing">[${alt}]</span>`;
 }
 

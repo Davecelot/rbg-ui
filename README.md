@@ -2,6 +2,14 @@
 
 RBG is a fútbol hub redesigned as a panel inside a pixel-art host app. This repository contains the front-end experience and a local host simulator; it has no back end. The panel adapts to the available window while preserving its 16:9 layout.
 
+## Online demo
+
+[Open the public UI demo](https://davecelot.github.io/rbg-ui/).
+
+GitHub Actions builds and deploys `dist/` to GitHub Pages on pushes to `main`.
+Only the static demo is deployed; purchases and matchmaking remain prototype actions.
+Runtime image URLs use Vite’s base path so the demo works under `/rbg-ui/`.
+
 ## Requirements
 
 - Node.js 22 or later
@@ -53,3 +61,9 @@ WALKTHROUGH=1 npm test -- walkthrough
 - The panel uses vanilla HTML, CSS, and JavaScript. Vite, Playwright, ESLint, and Prettier are development dependencies; the panel has no runtime dependencies.
 - Use synthetic demo data and keep runtime fonts and images in `public/`. The panel does not load resources from other hosts.
 - Keep the panel scoped to its host, responsive to the available window, keyboard accessible, and compatible with reduced-motion preferences.
+
+## Repository access
+
+`@Davecelot` owns all files through `.github/CODEOWNERS`. GitHub rules require code-owner review for contributions and reserve updates to `main` for the repository administrator (currently only Davecelot). The owner can push directly; GitHub does not allow self-approval. Force pushes and deletion of `main` are blocked, including for the owner.
+
+Contributors can fork the public repository and propose pull requests. Granting new administrator access also grants the owner-control ruleset bypass and must be a deliberate owner decision. Deployment runs only from `main` or a manual dispatch on `main`, uses pinned GitHub Actions, and publishes only `dist/`. Dependabot checks npm packages and GitHub Actions weekly.
