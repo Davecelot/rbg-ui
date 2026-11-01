@@ -1,13 +1,13 @@
 import { itemArt } from './art.js';
 
-const item = (id, name, type, description, rarity, profilePreview) => ({
+const item = (id, name, type, description, rarity, profilePreview, artIndex = 0) => ({
   id,
   name,
   type,
   description,
   ...(rarity ? { rarity } : {}),
   ...(profilePreview ? { profilePreview } : {}),
-  ...(id !== 'nenhum' ? { art: itemArt(type, type === 'Card' ? 0 : type === 'Banner' ? 0 : 1) } : {}),
+  ...(id !== 'nenhum' ? { art: itemArt(type, artIndex) } : {}),
 });
 
 export const profileCustomization = {
@@ -24,6 +24,24 @@ export const profileCustomization = {
         'Rara',
         'card',
       ),
+      item(
+        'card-ouro',
+        'Card Ouro',
+        'Card',
+        'Aparece no placar, para todos, quando você marca um gol, e no seu perfil.',
+        undefined,
+        'card',
+        7,
+      ),
+      item(
+        'card-lenda',
+        'Card Lenda',
+        'Card',
+        'Aparece no placar, para todos, quando você marca um gol, e no seu perfil.',
+        undefined,
+        'card',
+        6,
+      ),
     ],
   },
   banner: {
@@ -32,6 +50,16 @@ export const profileCustomization = {
     items: [
       item('nenhum', 'Nenhum', 'Banner', 'Sem banner equipado.'),
       item('banner-gramado', 'Banner Gramado', 'Banner', 'O fundo do seu perfil, para quem abre.', 'Comum', 'banner'),
+      item(
+        'banner-estadio',
+        'Banner Estádio',
+        'Banner',
+        'O fundo do seu perfil, para quem abre.',
+        undefined,
+        'banner',
+        2,
+      ),
+      item('banner-noite', 'Banner Noite', 'Banner', 'O fundo do seu perfil, para quem abre.', undefined, 'banner', 7),
     ],
   },
   moldura: {

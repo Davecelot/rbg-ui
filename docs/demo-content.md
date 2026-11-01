@@ -36,3 +36,7 @@ Purchases, gifting, redemption, and RCS matchmaking remain prototype actions.
 All assets are stored under `public/assets/`, with nearest-neighbor pixel
 rendering. Existing RBG/RCS branding is preserved. No CDN, API, or remote image is
 loaded at runtime. Replace the local paths with final game artwork when supplied.
+
+## Profile customization
+
+The owner-requested demo equips three banners (Gramado, Estádio, Noite) and three cards (Prata, Ouro, Lenda) through the owned-item picker. These are synthetic owned fixtures, using existing local artwork and inventory names. Card Lenda uses a distinct demo skin to make switching visible; the art is not a verified final product design. Only confirmed rarity is shown. Equipment stays in memory for the current session.

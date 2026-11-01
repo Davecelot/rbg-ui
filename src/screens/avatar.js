@@ -8,9 +8,11 @@ const stageBar = (named, actions = '') => `
       <div class="rbg-stage__actions">${actions}</div>
     </div>`;
 
-export const avatarStage = ({ actions = '', named = false } = {}) => `
+export const avatarStage = ({ actions = '', named = false, backdrop = '' } = {}) => `
   <div class="rbg-stage">
+    ${backdrop ? `<div class="rbg-stage__portrait">${backdrop}` : ''}
     <div class="rbg-slot rbg-stage__sprite" data-slot="avatar" data-alt="Avatar de ${player.name}">${artImage(player.avatarFrames?.[0]?.src, `Avatar de ${player.name}`, 192)}</div>
+    ${backdrop ? '</div>' : ''}
     <div class="rbg-stage__rotation" role="group" aria-label="Girar avatar">
       <button type="button" class="rbg-icon-button" data-turn-step="-45" aria-label="Girar avatar para a esquerda">${icon('chevronLeft')}</button>
       <span class="rbg-stage__drag" data-turn>Girar <output data-angle aria-live="off">0°</output></span>

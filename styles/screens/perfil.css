@@ -7,6 +7,152 @@
   min-height: 100%;
 }
 
+.rbg .perfil__visuals {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  min-width: 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-feature);
+  background: var(--surface-green-1);
+}
+
+.rbg .perfil__presentation {
+  grid-area: 1 / 1;
+  display: flex;
+  justify-content: flex-end;
+  background: var(--surface-green-1);
+}
+
+.rbg .perfil__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-1);
+  border: 0;
+  background: var(--surface-green-1);
+  color: var(--paper);
+  font-size: var(--text-14);
+  cursor: pointer;
+}
+
+.rbg .perfil__toggle-track {
+  display: grid;
+  align-items: center;
+  width: 40px;
+  height: 24px;
+  padding: var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--grey-500);
+}
+
+.rbg .perfil__toggle-track::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+}
+
+.rbg .perfil__toggle[aria-pressed='true'] .perfil__toggle-track {
+  background: var(--pitch);
+}
+
+.rbg .perfil__toggle[aria-pressed='true'] .perfil__toggle-track::before {
+  justify-self: end;
+  background: var(--ink);
+}
+
+.rbg .perfil__character .rbg-stage__portrait,
+.rbg .perfil__card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  isolation: isolate;
+}
+
+.rbg .perfil__banner {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-control);
+  background: var(--surface-green-1);
+}
+
+.rbg .perfil__banner > .rbg-art {
+  width: 192px;
+  height: 192px;
+  max-width: none;
+}
+
+.rbg .perfil__character .rbg-stage__sprite {
+  height: 192px;
+  background: transparent;
+}
+
+.rbg .perfil__character .rbg-stage__rotation,
+.rbg .perfil__character .rbg-stage__bar {
+  background: var(--surface-green-1);
+}
+
+.rbg .perfil__character,
+.rbg .perfil__card {
+  grid-area: 2 / 1;
+  min-width: 0;
+}
+
+.rbg .perfil__character,
+.rbg .perfil__character *,
+.rbg .perfil__card,
+.rbg .perfil__card * {
+  transition-property: none;
+}
+
+.rbg .perfil__character[hidden] {
+  display: block;
+  visibility: hidden;
+}
+
+.rbg .perfil__card[hidden] {
+  display: grid;
+  visibility: hidden;
+}
+
+.rbg .perfil__card {
+  padding: var(--space-3);
+}
+
+.rbg .perfil__card .profile-customize__card-preview {
+  background: transparent;
+}
+
+.rbg .perfil__card .profile-customize__card-preview strong,
+.rbg .perfil__card .profile-customize__card-preview > span {
+  background: var(--surface-green-1);
+  color: var(--paper);
+}
+
+.rbg .perfil__card .rbg-art {
+  width: 192px;
+  height: 192px;
+}
+
+.rbg .perfil__card-hint {
+  grid-area: 3 / 1;
+  color: var(--grey-300);
+  font-size: var(--text-14);
+}
+
+.rbg .perfil__toggle:disabled {
+  color: var(--grey-400);
+  cursor: default;
+}
+
 .perfil__name {
   min-width: 0;
   font-family: var(--font-display);
@@ -300,39 +446,28 @@
 
 .profile-customize__pitch {
   position: relative;
+  display: grid;
+  place-items: center;
   max-width: 500px;
+  min-height: 192px;
   margin-inline: auto;
-  aspect-ratio: 2.2 / 1;
 }
 
 .profile-customize .profile-customize__pitch > .rbg-art {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
+  grid-area: 1 / 1;
+  width: 192px;
+  height: 192px;
+  object-fit: contain;
 }
 
-.profile-customize__banner-name {
-  position: absolute;
-  bottom: var(--space-3);
-  left: var(--space-3);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  width: max-content;
-  height: 32px;
-  max-width: calc(100% - 2 * var(--space-3));
-  padding: var(--space-1) var(--space-2) var(--space-1) var(--space-1);
-  background: var(--ink);
-  color: var(--paper);
-  font-weight: 500;
-  line-height: 1;
+.profile-customize__banner-avatar {
+  grid-area: 1 / 1;
+  z-index: 1;
 }
 
-.profile-customize .profile-customize__banner-name .rbg-art {
-  width: 24px;
-  height: 24px;
+.profile-customize .profile-customize__banner-avatar > .rbg-art {
+  width: 192px;
+  height: 192px;
 }
 
 .profile-customize__preview-caption {
@@ -348,11 +483,9 @@
   width: min(100%, 220px);
   min-height: 280px;
   padding: var(--space-4);
-  border: 5px solid var(--grey-300);
   background: var(--grey-100);
   color: var(--ink);
   text-align: center;
-  clip-path: polygon(8% 0, 92% 0, 100% 7%, 100% 93%, 92% 100%, 8% 100%, 0 93%, 0 7%);
 }
 
 .profile-customize .profile-customize__card-preview .rbg-art {
@@ -363,19 +496,24 @@
 .profile-customize__goal {
   justify-self: end;
   padding: 2px var(--space-2);
-  background: var(--paper);
+  background: var(--grey-100);
+  color: var(--ink);
   font-weight: 700;
 }
 
 .profile-customize__card-preview strong {
   width: 100%;
   padding-block: var(--space-2);
-  border-block: var(--hairline) solid var(--grey-400);
+  background: var(--grey-100);
+  color: var(--ink);
+  overflow-wrap: anywhere;
   font-size: var(--text-16);
 }
 
 .profile-customize__card-preview > span:last-child {
-  color: var(--grey-500);
+  padding: var(--space-1) var(--space-2);
+  background: var(--grey-100);
+  color: var(--ink);
   font-size: var(--text-13);
 }
 
@@ -475,6 +613,42 @@
 }
 
 @container rbg (width < 1100px) {
+  .rbg .perfil__visuals {
+    padding: var(--space-2);
+  }
+
+  .rbg .perfil__character .rbg-stage {
+    padding-inline: 0;
+  }
+
+  .rbg .perfil__character .rbg-stage__rotation {
+    gap: 0;
+  }
+
+  .rbg .perfil__character .rbg-stage__drag {
+    min-width: 80px;
+  }
+
+  .rbg .perfil__card {
+    padding-block: 0;
+  }
+
+  .rbg .perfil__character .rbg-stage__sprite,
+  .rbg .perfil__card .rbg-art {
+    width: 128px;
+    height: 128px;
+  }
+
+  .rbg .perfil__card .profile-customize__card-preview {
+    gap: var(--space-1);
+    min-height: 0;
+    padding: 0;
+  }
+
+  .rbg .perfil__card .profile-customize__card-preview strong {
+    padding-block: var(--space-1);
+  }
+
   .rbg-screen--perfil .perfil {
     grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.5fr) minmax(0, 1fr);
     gap: var(--space-6);
@@ -563,6 +737,13 @@
 
   .profile-customize__pitch {
     max-width: 360px;
+    min-height: 128px;
+  }
+
+  .profile-customize .profile-customize__pitch > .rbg-art,
+  .profile-customize .profile-customize__banner-avatar > .rbg-art {
+    width: 128px;
+    height: 128px;
   }
 }
 

@@ -606,3 +606,13 @@ Keep later content units semantic so labels and values enter together.
 **Why:** CODEOWNERS identifies the reviewer; server-side rules and collaborator permissions enforce control. Pin deployment actions, disable persisted checkout credentials, limit Actions to approved GitHub actions, use read-only tokens by default, and enable available GitHub secret/dependency protections.
 
 **Watch out:** Repository admin bypass is role-based; granting another admin would extend bypass authority. Public readers can copy and fork published code. Keep private source captures and the original local history excluded. Owner account authentication settings are managed separately by the owner.
+
+## 2026-11-01 — Profile artwork and presentation choice
+
+**Context:** The owner requested restoring equipped banners and cards in the Lobby while protecting readability, and a choice between the character and card.
+
+**Decision:** Confine the equipped banner to the profile artwork field. Keep all labels, controls, rank progress and statistics on opaque token surfaces. Reuse the owned-item picker and card renderer; the native `Exibir card` toggle button (`aria-pressed`) changes only the visual column. It sits inside the same solid artwork surface, following the owner’s request to integrate the control. Store the viewer's choice as `rbg:profile-view`, with an in-memory fallback when storage is denied. Without an equipped card, display the character and explain how to equip a card.
+
+**Why:** Item artwork cannot change the background used to read profile information. The profile retains one visual subject and its existing facts, while customization changes appear when returning from the picker.
+
+**Watch out:** Item ownership/equipment remains synthetic session data, as elsewhere in this UI prototype. Only the presentation preference survives reload. Current local item art is demo material; no source captures are shipped.

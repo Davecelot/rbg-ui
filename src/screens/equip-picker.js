@@ -2,22 +2,29 @@ import { artImage, bindArt } from './art.js';
 import { avatarArt } from '../data/art.js';
 import { showPreview } from './avatar.js';
 import { icon } from './icons.js';
+import { player } from '../data/player.js';
+import { rankName } from './rank-badge.js';
+
+export const profileCard = (item, goal = false) => `
+  <div class="profile-customize__card-preview">
+    <span class="profile-customize__goal">${goal ? 'Gol!' : rankName(player.rank.tierId, player.rank.division)}</span>
+    ${artImage(item.art, item.name, 192)}
+    <strong>${player.name}</strong>
+    <span>${goal ? 'Assim aparece quando você marca' : `${player.rank.pdl} / ${player.rank.pdlMax} PDL`}</span>
+  </div>`;
 // The equip picker (panel-builder § Item templates): owned items of one type, a live detail, and one Equipar action.
 const preview = (item) => {
   if (item.profilePreview === 'card')
-    return `<div class="equip__preview profile-customize__card-wrap"><div class="profile-customize__card-preview">
-      <span class="profile-customize__goal">GOL!</span>${artImage(avatarArt(0), 'Jogador 01')}
-      <strong>JOGADOR 01</strong><span>Assim aparece quando você marca</span>
-    </div></div>`;
+    return `<div class="equip__preview profile-customize__card-wrap">${profileCard(item, true)}</div>`;
   if (item.profilePreview === 'banner')
-    return `<div class="equip__preview profile-customize__banner-wrap" role="img" aria-label="Prévia do perfil de Jogador 01 com Banner Gramado">
+    return `<div class="equip__preview profile-customize__banner-wrap" role="img" aria-label="Prévia do perfil de ${player.name} com ${item.name}">
       <div class="profile-customize__banner-art" aria-hidden="true">
         <div class="profile-customize__pitch">
           ${artImage(item.art, item.name)}
-          <span class="profile-customize__banner-name">${artImage(avatarArt(0), 'Avatar de Jogador 01', 24)}Jogador 01</span>
+          <div class="profile-customize__banner-avatar">${artImage(avatarArt(0), `Avatar de ${player.name}`, 192)}</div>
         </div>
       </div>
-      <span class="profile-customize__preview-caption">Assim fica o topo do seu perfil.</span>
+      <span class="profile-customize__preview-caption">Assim fica o fundo do personagem.</span>
     </div>`;
   return item.art ? `<div class="equip__preview">${artImage(item.art, item.name)}</div>` : '';
 };

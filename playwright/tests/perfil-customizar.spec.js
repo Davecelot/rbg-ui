@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
-import { gotoScreen } from '../helpers/panel.js';
+import { gotoScreen, layoutProblems } from '../helpers/panel.js';
 
 const SELF_CHECK = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -98,8 +98,7 @@ test('customization stays in the view without covering the shell', async ({ page
   await expect(customize).toHaveCount(1);
   await expect(page.getByRole('tablist', { name: 'Seções' }).getByRole('tab', { name: 'Perfil' })).toBeVisible();
   await expect(page.locator('.rbg-actionbar')).toBeVisible();
-  const view = page.locator('.rbg-view');
-  expect(await view.evaluate((element) => element.scrollHeight > element.clientHeight)).toBe(true);
+  expect(await layoutProblems(page)).toEqual([]);
   const caption = customize.locator('.profile-customize__preview-caption');
   await caption.scrollIntoViewIfNeeded();
   await expect(caption).toBeInViewport();
