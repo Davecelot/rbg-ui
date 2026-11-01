@@ -2,7 +2,7 @@ import { artImage, artUrl, bindArt } from './art.js';
 import { player } from '../data/player.js';
 import { icon } from './icons.js';
 
-const stageBar = (named, actions = '') => `
+export const stageBar = (named, actions = '') => `
     <div class="rbg-stage__bar">
       <p class="rbg-stage__id"><span class="rbg-stage__kit"><span class="rbg-visually-hidden">Camisa </span>${named ? '#' : ''}${player.number}</span>${named ? ` <span class="rbg-stage__name">${player.name}</span>` : ''}</p>
       <div class="rbg-stage__actions">${actions}</div>

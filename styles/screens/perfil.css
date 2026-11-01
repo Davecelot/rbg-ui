@@ -96,7 +96,8 @@
 }
 
 .rbg .perfil__character .rbg-stage__rotation,
-.rbg .perfil__character .rbg-stage__bar {
+.rbg .perfil__character .rbg-stage__bar,
+.rbg .perfil__card .rbg-stage__bar {
   background: var(--surface-green-1);
 }
 
@@ -124,17 +125,13 @@
 }
 
 .rbg .perfil__card {
-  padding: var(--space-3);
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-self: stretch;
+  padding: var(--space-3) var(--space-4);
 }
 
-.rbg .perfil__card .profile-customize__card-preview {
-  background: transparent;
-}
-
-.rbg .perfil__card .profile-customize__card-preview strong,
-.rbg .perfil__card .profile-customize__card-preview > span {
-  background: var(--surface-green-1);
-  color: var(--paper);
+.rbg .perfil__card .rbg-stage__bar {
+  width: 100%;
 }
 
 .rbg .perfil__card .rbg-art {
@@ -617,7 +614,8 @@
     padding: var(--space-2);
   }
 
-  .rbg .perfil__character .rbg-stage {
+  .rbg .perfil__character .rbg-stage,
+  .rbg .perfil__card {
     padding-inline: 0;
   }
 
@@ -629,24 +627,10 @@
     min-width: 80px;
   }
 
-  .rbg .perfil__card {
-    padding-block: 0;
-  }
-
   .rbg .perfil__character .rbg-stage__sprite,
   .rbg .perfil__card .rbg-art {
     width: 128px;
     height: 128px;
-  }
-
-  .rbg .perfil__card .profile-customize__card-preview {
-    gap: var(--space-1);
-    min-height: 0;
-    padding: 0;
-  }
-
-  .rbg .perfil__card .profile-customize__card-preview strong {
-    padding-block: var(--space-1);
   }
 
   .rbg-screen--perfil .perfil {

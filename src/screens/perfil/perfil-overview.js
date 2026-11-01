@@ -1,12 +1,11 @@
 import { player } from '../../data/player.js';
-import { avatarStage, bindTurn } from '../avatar.js';
+import { avatarStage, bindTurn, stageBar } from '../avatar.js';
 import { rankBadge, rankName } from '../rank-badge.js';
 import { positions } from '../../data/positions.js';
 import { chevron, goLink, number, unit } from '../format.js';
 import { profileCustomizer } from './customize.js';
 import { profileCustomization } from '../../data/profile-customization.js';
 import { artImage } from '../art.js';
-import { profileCard } from '../equip-picker.js';
 
 const { rank, record, pass, club } = player;
 
@@ -32,7 +31,7 @@ const visuals = () => {
       </button>
     </div>
     <div class="perfil__character"${showCard ? ' hidden inert' : ''}>${avatarStage({ actions: goLink('vestiario', 'Vestiário'), backdrop })}</div>
-    <div class="perfil__card"${showCard ? '' : ' hidden inert'}>${backdrop}${card?.id !== 'nenhum' && card ? profileCard(card) : ''}</div>
+    <div class="perfil__card"${showCard ? '' : ' hidden inert'}>${backdrop}${card?.id !== 'nenhum' && card ? artImage(card.art, card.name, 192) : ''}${stageBar(false, goLink('vestiario', 'Vestiário'))}</div>
     ${!card || card.id === 'nenhum' ? '<p id="perfil-card-hint" class="perfil__card-hint">Equipe um card em Personalizar perfil.</p>' : ''}
   </div>`;
 };

@@ -20,8 +20,10 @@ test('profile presentation switches with the keyboard and remembers the choice',
   await expect(page.locator('.perfil__card')).toBeVisible();
   await expect(page.getByRole('button', { name: /Girar avatar para/ })).toHaveCount(0);
   expect(await page.locator('.perfil__character').evaluate((element) => element.inert)).toBe(true);
-  await expect(page.locator('.perfil__card')).toContainText('Prata IV');
-  await expect(page.locator('.perfil__card')).toContainText('24 / 100 PDL');
+  await expect(page.locator('.perfil__card')).not.toContainText('Prata IV');
+  await expect(page.locator('.perfil__card')).not.toContainText('Jogador 01');
+  await expect(page.locator('.perfil__card')).not.toContainText('24 / 100 PDL');
+  await expect(page.locator('.perfil__card').getByRole('button', { name: 'Vestiário' })).toBeVisible();
   expect(await surface.boundingBox()).toEqual(footprint);
   expect(
     await page.locator('.rbg-view').evaluate((view) => ({
@@ -121,9 +123,7 @@ test('owned banner and card options apply distinct artwork to the profile', asyn
         if ((await toggle.getAttribute('aria-pressed')) !== 'true') await toggle.click();
       }
       const art = page.locator(
-        group === 'card'
-          ? '.perfil__card .profile-customize__card-preview img'
-          : '.perfil__character .perfil__banner img',
+        group === 'card' ? '.perfil__card > img.rbg-art' : '.perfil__character .perfil__banner img',
       );
       await expect(art).toHaveAttribute('alt', name);
       await expect(art).toHaveAttribute('src', new RegExp(`${file}$`));

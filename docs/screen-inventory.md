@@ -103,7 +103,7 @@ Files `reference/current-app/CNN-*.webp`, shared by the owner on date omitted, p
 
 Notes: C18 shows `Banner Gramado equipado.` on the Moldura tab — a status-message bug. Rarity labels here are feminine (`RARA`, `COMUM`).
 
-Owner update (2026-11-01): restore equipped banner and card visuals in the Lobby. Confine banner artwork to the character/card field so profile content keeps a readable solid background. Add a presentation choice within the existing profile view, remembered for the viewer. Follow-up: integrate it into the artwork surface as one `Exibir card` toggle (off shows the character, on shows the card). Without an equipped card, show the character and `Equipe um card em Personalizar perfil.`. The card carries the existing player name, rank and PDL; no new stats or rewards.
+Owner update (2026-11-01): restore equipped banner and card visuals in the Lobby. Confine banner artwork to the character/card field so profile content keeps a readable solid background. Add a presentation choice within the existing profile view, remembered for the viewer. Follow-up: integrate it into the artwork surface as one `Exibir card` toggle (off shows the character, on shows the card). Without an equipped card, show the character and `Equipe um card em Personalizar perfil.`. Further simplification: omit the repeated player name, rank and PDL from the card presentation; keep the character view's shirt-number and `Vestiário` row under the artwork in both presentations.
 
 ---
 
